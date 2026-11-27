@@ -1,0 +1,589 @@
+{
+  "schema": 2,
+  "adapter": {
+    "name": "NVIDIA GeForce GTX 1080",
+    "backend": "vulkan",
+    "device_type": "discrete_gpu",
+    "vendor": 4318,
+    "device": 7040,
+    "pci_bus_id": "0000:01:00.0",
+    "driver": "NVIDIA",
+    "driver_info": "582.53",
+    "subgroup_min_size": 32,
+    "subgroup_max_size": 32,
+    "transient_saves_memory": false
+  },
+  "instance_flags": [
+    "VALIDATION_INDIRECT_CALL"
+  ],
+  "dx12_shader_compiler": {
+    "id": "fxc",
+    "dxc_path": null
+  },
+  "tier": "high",
+  "draw_path": "a",
+  "derived": {
+    "can_multi_draw_indirect_count": true,
+    "can_indirect_first_instance": true,
+    "indirect_draws_respect_first_vertex_and_instance": true,
+    "indirect_count_draws_respect_first_vertex_and_instance": true,
+    "can_timestamp_passes": true,
+    "can_timestamp_inside_encoders": true,
+    "can_timestamp_inside_passes": true,
+    "hdr_rg11b10_renderable": true,
+    "float32_filterable": true,
+    "norm16_textures": true,
+    "bc_compressed_textures": true,
+    "can_unclip_depth": true,
+    "can_dual_source_blend": true,
+    "can_use_immediates": true,
+    "adapter_format_features": true
+  },
+  "features": {
+    "optional": [
+      {
+        "name": "MULTI_DRAW_INDIRECT_COUNT",
+        "available": true,
+        "enabled": true,
+        "used_for": "draw path A (Vulkan): GPU culling writes the indirect arguments and their count",
+        "fallback": "draw path B: culling on the CPU, multi_draw_indexed_indirect with a known count"
+      },
+      {
+        "name": "INDIRECT_FIRST_INSTANCE",
+        "available": true,
+        "enabled": true,
+        "used_for": "first_instance of indirect draws selects the bucket of a draw (both draw paths)",
+        "fallback": "draw path B with one direct draw per visible range"
+      },
+      {
+        "name": "TIMESTAMP_QUERY",
+        "available": true,
+        "enabled": true,
+        "used_for": "GPU time per pass (timestamps at pass begin and end)",
+        "fallback": "no GPU timings, CPU frame times only"
+      },
+      {
+        "name": "TIMESTAMP_QUERY_INSIDE_ENCODERS",
+        "available": true,
+        "enabled": true,
+        "used_for": "timestamps between passes (uploads, whole frame)",
+        "fallback": "pass timings only"
+      },
+      {
+        "name": "TIMESTAMP_QUERY_INSIDE_PASSES",
+        "available": true,
+        "enabled": true,
+        "used_for": "timing scopes inside a render or compute pass",
+        "fallback": "one timing per pass"
+      },
+      {
+        "name": "RG11B10UFLOAT_RENDERABLE",
+        "available": true,
+        "enabled": true,
+        "used_for": "Rg11b10Ufloat targets without alpha: bloom, half-resolution reflections",
+        "fallback": "Rgba16Float targets (8 instead of 4 bytes per pixel)"
+      },
+      {
+        "name": "FLOAT32_FILTERABLE",
+        "available": true,
+        "enabled": true,
+        "used_for": "linear sampling of 32-bit float textures (height maps, depth pyramid)",
+        "fallback": "nearest sampling with interpolation in the shader"
+      },
+      {
+        "name": "TEXTURE_FORMAT_16BIT_NORM",
+        "available": true,
+        "enabled": true,
+        "used_for": "macro height maps in R16Unorm (2 bytes per texel)",
+        "fallback": "macro height maps in R32Float (4 bytes per texel)"
+      },
+      {
+        "name": "TEXTURE_COMPRESSION_BC",
+        "available": true,
+        "enabled": true,
+        "used_for": "BC-compressed textures for large maps",
+        "fallback": "uncompressed textures"
+      },
+      {
+        "name": "DEPTH_CLIP_CONTROL",
+        "available": true,
+        "enabled": true,
+        "used_for": "unclipped depth for shadow cascades (casters in front of the near plane)",
+        "fallback": "longer cascade depth ranges"
+      },
+      {
+        "name": "DUAL_SOURCE_BLENDING",
+        "available": true,
+        "enabled": true,
+        "used_for": "per-channel transmittance when blending atmosphere, fog and clouds",
+        "fallback": "single-channel transmittance"
+      },
+      {
+        "name": "IMMEDIATES",
+        "available": true,
+        "enabled": true,
+        "used_for": "small per-pass constants as immediate data, at most 128 bytes (no bind group)",
+        "fallback": "a small uniform buffer"
+      },
+      {
+        "name": "TEXTURE_ADAPTER_SPECIFIC_FORMAT_FEATURES",
+        "available": true,
+        "enabled": true,
+        "used_for": "format capabilities beyond WebGPU, e.g. read-write storage textures",
+        "fallback": "the format capabilities WebGPU guarantees"
+      }
+    ],
+    "available": [
+      "SHADER_FLOAT32_ATOMIC",
+      "TEXTURE_FORMAT_16BIT_NORM",
+      "TEXTURE_ADAPTER_SPECIFIC_FORMAT_FEATURES",
+      "PIPELINE_STATISTICS_QUERY",
+      "TIMESTAMP_QUERY_INSIDE_ENCODERS",
+      "TIMESTAMP_QUERY_INSIDE_PASSES",
+      "MAPPABLE_PRIMARY_BUFFERS",
+      "TEXTURE_BINDING_ARRAY",
+      "BUFFER_BINDING_ARRAY",
+      "STORAGE_RESOURCE_BINDING_ARRAY",
+      "SAMPLED_TEXTURE_AND_STORAGE_BUFFER_ARRAY_NON_UNIFORM_INDEXING",
+      "STORAGE_TEXTURE_ARRAY_NON_UNIFORM_INDEXING",
+      "PARTIALLY_BOUND_BINDING_ARRAY",
+      "MULTI_DRAW_INDIRECT_COUNT",
+      "ADDRESS_MODE_CLAMP_TO_ZERO",
+      "ADDRESS_MODE_CLAMP_TO_BORDER",
+      "POLYGON_MODE_LINE",
+      "POLYGON_MODE_POINT",
+      "CONSERVATIVE_RASTERIZATION",
+      "VERTEX_WRITABLE_STORAGE",
+      "CLEAR_TEXTURE",
+      "MULTIVIEW",
+      "TEXTURE_ATOMIC",
+      "TEXTURE_FORMAT_NV12",
+      "TEXTURE_FORMAT_P010",
+      "SHADER_F64",
+      "SHADER_I16",
+      "SHADER_EARLY_DEPTH_TEST",
+      "SHADER_INT64",
+      "SUBGROUP",
+      "SUBGROUP_VERTEX",
+      "SUBGROUP_BARRIER",
+      "PIPELINE_CACHE",
+      "SHADER_INT64_ATOMIC_MIN_MAX",
+      "SHADER_INT64_ATOMIC_ALL_OPS",
+      "VULKAN_EXTERNAL_MEMORY_WIN32",
+      "TEXTURE_INT64_ATOMIC",
+      "EXTENDED_ACCELERATION_STRUCTURE_VERTEX_FORMATS",
+      "PASSTHROUGH_SHADERS",
+      "SELECTIVE_MULTIVIEW",
+      "MULTISAMPLE_ARRAY",
+      "SHADER_DRAW_INDEX",
+      "MEMORY_DECORATION_COHERENT",
+      "MEMORY_DECORATION_VOLATILE",
+      "EXPERIMENTAL_RAY_TRACING_PIPELINES",
+      "DEPTH_CLIP_CONTROL",
+      "DEPTH32FLOAT_STENCIL8",
+      "TEXTURE_COMPRESSION_BC",
+      "TEXTURE_COMPRESSION_BC_SLICED_3D",
+      "TIMESTAMP_QUERY",
+      "INDIRECT_FIRST_INSTANCE",
+      "RG11B10UFLOAT_RENDERABLE",
+      "BGRA8UNORM_STORAGE",
+      "FLOAT32_FILTERABLE",
+      "FLOAT32_BLENDABLE",
+      "DUAL_SOURCE_BLENDING",
+      "CLIP_DISTANCES",
+      "IMMEDIATES",
+      "PRIMITIVE_INDEX"
+    ],
+    "enabled": [
+      "TEXTURE_FORMAT_16BIT_NORM",
+      "TEXTURE_ADAPTER_SPECIFIC_FORMAT_FEATURES",
+      "TIMESTAMP_QUERY_INSIDE_ENCODERS",
+      "TIMESTAMP_QUERY_INSIDE_PASSES",
+      "MULTI_DRAW_INDIRECT_COUNT",
+      "DEPTH_CLIP_CONTROL",
+      "TEXTURE_COMPRESSION_BC",
+      "TIMESTAMP_QUERY",
+      "INDIRECT_FIRST_INSTANCE",
+      "RG11B10UFLOAT_RENDERABLE",
+      "FLOAT32_FILTERABLE",
+      "DUAL_SOURCE_BLENDING",
+      "IMMEDIATES"
+    ]
+  },
+  "limits": {
+    "max_texture_dimension_1d": {
+      "default": 8192,
+      "requested": 8192,
+      "adapter": 32768,
+      "enabled": 8192
+    },
+    "max_texture_dimension_2d": {
+      "default": 8192,
+      "requested": 8192,
+      "adapter": 32768,
+      "enabled": 8192
+    },
+    "max_texture_dimension_3d": {
+      "default": 2048,
+      "requested": 2048,
+      "adapter": 16384,
+      "enabled": 2048
+    },
+    "max_texture_array_layers": {
+      "default": 256,
+      "requested": 4294967295,
+      "adapter": 2048,
+      "enabled": 2048
+    },
+    "max_bind_groups": {
+      "default": 4,
+      "requested": 8,
+      "adapter": 8,
+      "enabled": 8
+    },
+    "max_bind_groups_plus_vertex_buffers": {
+      "default": 24,
+      "requested": 24,
+      "adapter": 24,
+      "enabled": 24
+    },
+    "max_bindings_per_bind_group": {
+      "default": 1000,
+      "requested": 1000,
+      "adapter": 4294967295,
+      "enabled": 1000
+    },
+    "max_dynamic_uniform_buffers_per_pipeline_layout": {
+      "default": 8,
+      "requested": 8,
+      "adapter": 15,
+      "enabled": 8
+    },
+    "max_dynamic_storage_buffers_per_pipeline_layout": {
+      "default": 4,
+      "requested": 4,
+      "adapter": 16,
+      "enabled": 4
+    },
+    "max_sampled_textures_per_shader_stage": {
+      "default": 16,
+      "requested": 32,
+      "adapter": 524288,
+      "enabled": 32
+    },
+    "max_samplers_per_shader_stage": {
+      "default": 16,
+      "requested": 16,
+      "adapter": 524288,
+      "enabled": 16
+    },
+    "max_storage_buffers_per_shader_stage": {
+      "default": 8,
+      "requested": 8,
+      "adapter": 524288,
+      "enabled": 8
+    },
+    "max_storage_textures_per_shader_stage": {
+      "default": 4,
+      "requested": 16,
+      "adapter": 524288,
+      "enabled": 16
+    },
+    "max_uniform_buffers_per_shader_stage": {
+      "default": 12,
+      "requested": 12,
+      "adapter": 15,
+      "enabled": 12
+    },
+    "max_binding_array_elements_per_shader_stage": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 1048576,
+      "enabled": 0
+    },
+    "max_binding_array_acceleration_structure_elements_per_shader_stage": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 524288,
+      "enabled": 0
+    },
+    "max_binding_array_sampler_elements_per_shader_stage": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 1048576,
+      "enabled": 0
+    },
+    "max_uniform_buffer_binding_size": {
+      "default": 65536,
+      "requested": 65536,
+      "adapter": 65536,
+      "enabled": 65536
+    },
+    "max_storage_buffer_binding_size": {
+      "default": 134217728,
+      "requested": 1073741824,
+      "adapter": 2147483644,
+      "enabled": 1073741824
+    },
+    "max_vertex_buffers": {
+      "default": 8,
+      "requested": 8,
+      "adapter": 16,
+      "enabled": 8
+    },
+    "max_buffer_size": {
+      "default": 268435456,
+      "requested": 1073741824,
+      "adapter": 4292870144,
+      "enabled": 1073741824
+    },
+    "max_vertex_attributes": {
+      "default": 16,
+      "requested": 16,
+      "adapter": 32,
+      "enabled": 16
+    },
+    "max_vertex_buffer_array_stride": {
+      "default": 2048,
+      "requested": 2048,
+      "adapter": 2048,
+      "enabled": 2048
+    },
+    "max_inter_stage_shader_variables": {
+      "default": 16,
+      "requested": 16,
+      "adapter": 31,
+      "enabled": 16
+    },
+    "min_uniform_buffer_offset_alignment": {
+      "default": 256,
+      "requested": 256,
+      "adapter": 256,
+      "enabled": 256
+    },
+    "min_storage_buffer_offset_alignment": {
+      "default": 256,
+      "requested": 256,
+      "adapter": 32,
+      "enabled": 256
+    },
+    "max_color_attachments": {
+      "default": 8,
+      "requested": 8,
+      "adapter": 8,
+      "enabled": 8
+    },
+    "max_color_attachment_bytes_per_sample": {
+      "default": 32,
+      "requested": 64,
+      "adapter": 128,
+      "enabled": 64
+    },
+    "max_compute_workgroup_storage_size": {
+      "default": 16384,
+      "requested": 16384,
+      "adapter": 49152,
+      "enabled": 16384
+    },
+    "max_compute_invocations_per_workgroup": {
+      "default": 256,
+      "requested": 256,
+      "adapter": 1536,
+      "enabled": 256
+    },
+    "max_compute_workgroup_size_x": {
+      "default": 256,
+      "requested": 256,
+      "adapter": 1536,
+      "enabled": 256
+    },
+    "max_compute_workgroup_size_y": {
+      "default": 256,
+      "requested": 256,
+      "adapter": 1024,
+      "enabled": 256
+    },
+    "max_compute_workgroup_size_z": {
+      "default": 64,
+      "requested": 64,
+      "adapter": 64,
+      "enabled": 64
+    },
+    "max_compute_workgroups_per_dimension": {
+      "default": 65535,
+      "requested": 65535,
+      "adapter": 65535,
+      "enabled": 65535
+    },
+    "max_immediate_size": {
+      "default": 0,
+      "requested": 128,
+      "adapter": 256,
+      "enabled": 128
+    },
+    "max_non_sampler_bindings": {
+      "default": 1000000,
+      "requested": 1000000,
+      "adapter": 4294967295,
+      "enabled": 1000000
+    },
+    "max_task_workgroup_total_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_task_workgroups_per_dimension": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_workgroup_total_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_workgroups_per_dimension": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_task_invocations_per_workgroup": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_task_invocations_per_dimension": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_invocations_per_workgroup": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_invocations_per_dimension": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_task_payload_size": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_output_vertices": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_output_primitives": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_output_layers": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_mesh_multiview_view_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 0,
+      "enabled": 0
+    },
+    "max_blas_primitive_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 536870911,
+      "enabled": 0
+    },
+    "max_blas_geometry_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 16777215,
+      "enabled": 0
+    },
+    "max_tlas_instance_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 16777215,
+      "enabled": 0
+    },
+    "max_acceleration_structures_per_shader_stage": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 524288,
+      "enabled": 0
+    },
+    "max_buffers_and_acceleration_structures_per_shader_stage": {
+      "default": 28,
+      "requested": 28,
+      "adapter": 4294967295,
+      "enabled": 28
+    },
+    "max_multiview_view_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 32,
+      "enabled": 0
+    },
+    "max_ray_dispatch_count": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 1073741824,
+      "enabled": 0
+    },
+    "max_ray_recursion_depth": {
+      "default": 0,
+      "requested": 0,
+      "adapter": 31,
+      "enabled": 0
+    }
+  },
+  "downlevel": {
+    "webgpu_compliant": true,
+    "shader_model": "Sm5",
+    "flags": {
+      "COMPUTE_SHADERS": true,
+      "FRAGMENT_WRITABLE_STORAGE": true,
+      "INDIRECT_EXECUTION": true,
+      "BASE_VERTEX": true,
+      "READ_ONLY_DEPTH_STENCIL": true,
+      "NON_POWER_OF_TWO_MIPMAPPED_TEXTURES": true,
+      "CUBE_ARRAY_TEXTURES": true,
+      "COMPARISON_SAMPLERS": true,
+      "INDEPENDENT_BLEND": true,
+      "VERTEX_STORAGE": true,
+      "ANISOTROPIC_FILTERING": true,
+      "FRAGMENT_STORAGE": true,
+      "MULTISAMPLED_SHADING": true,
+      "DEPTH_TEXTURE_AND_BUFFER_COPIES": true,
+      "WEBGPU_TEXTURE_FORMAT_SUPPORT": true,
+      "BUFFER_BINDINGS_NOT_16_BYTE_ALIGNED": true,
+      "UNRESTRICTED_INDEX_BUFFER": true,
+      "FULL_DRAW_INDEX_UINT32": true,
+      "DEPTH_BIAS_CLAMP": true,
+      "VIEW_FORMATS": true,
+      "UNRESTRICTED_EXTERNAL_TEXTURE_COPIES": true,
+      "SURFACE_VIEW_FORMATS": true,
+      "NONBLOCKING_QUERY_RESOLVE": true,
+      "SHADER_F16_IN_F32": true,
+      "MSL2_1": true,
+      "TEXTURE_COMPRESSION": true
+    }
+  }
+}

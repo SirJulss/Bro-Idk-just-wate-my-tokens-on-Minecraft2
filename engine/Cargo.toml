@@ -1,0 +1,99 @@
+# Cubeplanet engine workspace. Binding contract: docs/ARCHITEKTUR.md (section 3).
+#
+# Offline-first: every external crate below is already in the local cargo cache and its exact
+# version is pinned by Cargo.lock. Adding or bumping a dependency needs the lead's approval.
+
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace.dependencies]
+# Internal crates. Allowed dependency directions: contract section 3.1.
+cp-app = { path = "crates/cp-app" }
+cp-content = { path = "crates/cp-content" }
+cp-core = { path = "crates/cp-core" }
+cp-jobs = { path = "crates/cp-jobs" }
+cp-mesh = { path = "crates/cp-mesh" }
+cp-proctex = { path = "crates/cp-proctex" }
+cp-render = { path = "crates/cp-render" }
+cp-save = { path = "crates/cp-save" }
+cp-sim = { path = "crates/cp-sim" }
+cp-stream = { path = "crates/cp-stream" }
+cp-universe = { path = "crates/cp-universe" }
+cp-voxel = { path = "crates/cp-voxel" }
+cp-worldgen = { path = "crates/cp-worldgen" }
+
+# External crates (contract section 3.2). Each one is declared here and nowhere else.
+arrayvec = "0.7"
+bitflags = "2"
+bytemuck = { version = "1", features = ["derive"] }
+crossbeam-channel = "0.5"
+flate2 = "1"
+futures-lite = "2"
+# `libm` makes glam's transcendental functions platform-independent (contract 2.1, 2.5).
+glam = { version = "0.33", features = ["bytemuck", "serde", "libm"] }
+# Pinned exactly: a libm update could change generator output without a version bump (contract 2.5).
+libm = "=0.2.16"
+log = "0.4"
+memmap2 = "0.9"
+parking_lot = "0.12"
+png = "0.18"
+rustc-hash = "2"
+serde = { version = "1", features = ["derive"] }
+smallvec = "1"
+thiserror = "2"
+toml = "1"
+wgpu = { version = "=30.0.1", default-features = false, features = [
+    "std",
+    "wgsl",
+    "vulkan",
+    "dx12",
+    "metal",
+] }
+winit = "0.30"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+# The group must rank below the single lints that follow, otherwise their relative order is
+# undefined (clippy::lint_groups_priority rejects such a table).
+all = { level = "warn", priority = -1 }
+dbg_macro = "deny"
+todo = "deny"
+unimplemented = "deny"
+unwrap_used = "warn"
+# Only cp-app prints; it allows these lints.
+print_stdout = "warn"
+print_stderr = "warn"
+
+[profile.dev]
+opt-level = 1
+debug = "line-tables-only"
+
+# "*" matches every package that is not a workspace member, i.e. all external dependencies.
+[profile.dev.package."*"]
+opt-level = 3
+
+# The hot engine crates are optimised in dev builds as well.
+[profile.dev.package.cp-core]
+opt-level = 3
+
+[profile.dev.package.cp-voxel]
+opt-level = 3
+
+[profile.dev.package.cp-mesh]
+opt-level = 3
+
+[profile.dev.package.cp-worldgen]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+debug = "line-tables-only"

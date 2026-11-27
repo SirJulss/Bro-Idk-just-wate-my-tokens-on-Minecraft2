@@ -1,0 +1,129 @@
+# Tree textures: bark, end grain, planks and leaves of the four species.
+#
+# Parameters (colours are sRGB "#rrggbb", everything else names a variant of the recipe):
+#   log_side   bark    colour of the bark
+#              style   "furrowed" (vertical ridges) | "birch" (pale with dark dashes)
+#                      | "scaly" (plates) | "smooth" (banded with light dashes)
+#              marks   colour of the dashes of the styles "birch" and "smooth"
+#   log_top    wood    colour of the cut wood
+#              bark    colour of the ring of bark around it
+#   planks     wood    colour of the sawn wood
+#   leaves     leaf    colour of the foliage
+#              style   "broad" (round clumps) | "needle" (narrow hanging tufts)
+#              blossom adds blossoms of this colour
+#
+# The species are told apart by colour:
+#
+#            bark                   wood                    leaves
+#   oak      #80633a warm brown     #b8975a golden tan      #44802a fresh green (tinted)
+#   birch    #e6e2d6 chalk white    #e8dcb5 pale cream      #94a660 soft yellow-green
+#   spruce   #2e231c near black     #7a5636 dark umber      #3d6648 deep green
+#   cherry   #6e3530 red-brown      #c2665c rosewood        #f0a6c4 blossom pink
+#
+# Within each column any two colours are at least 25 apart in CIELAB (a difference of about 2
+# is just noticeable); a test keeps it that way. The beauty review of E2 (round 3) calmed the
+# three that did not sit well with the rest: birch leaves were a lime green twice as bright as
+# the oak's (#a4c24c, now 2.0 times the oak's luminance instead of 2.8), spruce turned
+# turquoise in the haze (#3a6e55) and cherry bark read as magenta (#70303f).
+#
+# Oak leaves follow the foliage colour of the place they grow in: their material is tinted, so
+# the texture is painted in a pale, near-neutral tone, and #44802a is what that tone becomes
+# under the reference foliage green #5ca042. The other three species keep their own colour
+# everywhere; it is painted into the texture and their materials are not tinted.
+
+# --- oak --------------------------------------------------------------------------------------
+
+[[texture]]
+key = "cubeplanet:log_oak_side"
+provenance = "own"
+procedural = { recipe = "log_side", seed = 201, params = { bark = "#80633a", style = "furrowed" } }
+
+[[texture]]
+key = "cubeplanet:log_oak_top"
+provenance = "own"
+procedural = { recipe = "log_top", seed = 202, params = { wood = "#b8975a", bark = "#80633a" } }
+
+[[texture]]
+key = "cubeplanet:planks_oak"
+provenance = "own"
+procedural = { recipe = "planks", seed = 203, params = { wood = "#b8975a" } }
+
+[[texture]]
+key = "cubeplanet:leaves_oak"
+provenance = "own"
+procedural = { recipe = "leaves", seed = 204, params = { leaf = "#c2cdaf", style = "broad" } }
+
+# --- birch ------------------------------------------------------------------------------------
+
+[[texture]]
+key = "cubeplanet:log_birch_side"
+provenance = "own"
+[texture.procedural]
+recipe = "log_side"
+seed = 211
+params = { bark = "#e6e2d6", style = "birch", marks = "#3a3331" }
+
+[[texture]]
+key = "cubeplanet:log_birch_top"
+provenance = "own"
+procedural = { recipe = "log_top", seed = 212, params = { wood = "#e8dcb5", bark = "#e6e2d6" } }
+
+[[texture]]
+key = "cubeplanet:planks_birch"
+provenance = "own"
+procedural = { recipe = "planks", seed = 213, params = { wood = "#e8dcb5" } }
+
+[[texture]]
+key = "cubeplanet:leaves_birch"
+provenance = "own"
+procedural = { recipe = "leaves", seed = 214, params = { leaf = "#94a660", style = "broad" } }
+
+# --- spruce -----------------------------------------------------------------------------------
+
+[[texture]]
+key = "cubeplanet:log_spruce_side"
+provenance = "own"
+procedural = { recipe = "log_side", seed = 221, params = { bark = "#2e231c", style = "scaly" } }
+
+[[texture]]
+key = "cubeplanet:log_spruce_top"
+provenance = "own"
+procedural = { recipe = "log_top", seed = 222, params = { wood = "#7a5636", bark = "#2e231c" } }
+
+[[texture]]
+key = "cubeplanet:planks_spruce"
+provenance = "own"
+procedural = { recipe = "planks", seed = 223, params = { wood = "#7a5636" } }
+
+[[texture]]
+key = "cubeplanet:leaves_spruce"
+provenance = "own"
+procedural = { recipe = "leaves", seed = 224, params = { leaf = "#3d6648", style = "needle" } }
+
+# --- cherry -----------------------------------------------------------------------------------
+
+[[texture]]
+key = "cubeplanet:log_cherry_side"
+provenance = "own"
+[texture.procedural]
+recipe = "log_side"
+seed = 231
+params = { bark = "#6e3530", style = "smooth", marks = "#b98a8f" }
+
+[[texture]]
+key = "cubeplanet:log_cherry_top"
+provenance = "own"
+procedural = { recipe = "log_top", seed = 232, params = { wood = "#c2665c", bark = "#6e3530" } }
+
+[[texture]]
+key = "cubeplanet:planks_cherry"
+provenance = "own"
+procedural = { recipe = "planks", seed = 233, params = { wood = "#c2665c" } }
+
+[[texture]]
+key = "cubeplanet:leaves_cherry"
+provenance = "own"
+[texture.procedural]
+recipe = "leaves"
+seed = 234
+params = { leaf = "#f0a6c4", style = "broad", blossom = "#fde4ec" }

@@ -1,0 +1,51 @@
+# Textures of `Registry::builtin_minimal`. Same definitions as in content/base.
+
+[[texture]]
+key = "cubeplanet:stone"
+provenance = "own"
+procedural = { recipe = "stone", seed = 101 }
+
+[[texture]]
+key = "cubeplanet:dirt"
+provenance = "own"
+procedural = { recipe = "dirt", seed = 102 }
+
+[[texture]]
+key = "cubeplanet:grass_top"
+provenance = "own"
+procedural = { recipe = "grass_top", seed = 103 }
+
+[[texture]]
+key = "cubeplanet:grass_side"
+provenance = "own"
+procedural = { recipe = "grass_side", seed = 102 }
+
+[[texture]]
+key = "cubeplanet:sand"
+provenance = "own"
+procedural = { recipe = "sand", seed = 105 }
+
+[[texture]]
+key = "cubeplanet:log_oak_side"
+provenance = "own"
+procedural = { recipe = "log_side", seed = 201, params = { bark = "#80633a", style = "furrowed" } }
+
+[[texture]]
+key = "cubeplanet:log_oak_top"
+provenance = "own"
+procedural = { recipe = "log_top", seed = 202, params = { wood = "#b8975a", bark = "#80633a" } }
+
+[[texture]]
+key = "cubeplanet:leaves_oak"
+provenance = "own"
+procedural = { recipe = "leaves", seed = 204, params = { leaf = "#c2cdaf", style = "broad" } }
+
+[[texture]]
+key = "cubeplanet:water"
+provenance = "own"
+procedural = { recipe = "water", seed = 301 }
+
+[[texture]]
+key = "cubeplanet:lava"
+provenance = "own"
+procedural = { recipe = "lava", seed = 302 }

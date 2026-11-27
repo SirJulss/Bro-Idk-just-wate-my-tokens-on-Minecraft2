@@ -1,0 +1,342 @@
+# The home system: one star, Heimat with its moon Kiesel, and six more cube worlds
+# (docs/SPIELPLAN.md, Teil A "Sonnensystem" and Teil B "Kompaktes Sonnensystem").
+#
+# Format: crates/cp-universe/src/schema.rs. Units: metres, seconds, m/s²; angles in degrees.
+# Frame: the system frame is inertial with the star at its origin; the reference plane
+# (ecliptic) is XZ, north is +Y, prograde motion runs from +X towards -Z. A body's +Y axis is its
+# north pole; its axial tilt leans that pole towards system -X (a tidally locked body's tilt is
+# measured from its orbit's normal instead, see Kiesel). Time 0 is the start of a game.
+#
+# Why the system is compact: real distances would make the neighbours invisible dots and trips
+# would take months. Here the moon is 120 km away and the planets a few thousand km apart, so
+# the neighbours hang in the sky as discs (Thalassa up to 1.0°, Glacia 0.5°, the sun 0.98°,
+# Kiesel 2.6°) and a ship at a constant 1 g arrives within minutes (times below).
+#
+# How periods follow from the numbers: every body has mu = g * R², R the half edge of a cube or
+# the radius of the star, so that far away it pulls like a point of that mass. An orbit's
+# period is Kepler's for two bodies, T = 2π sqrt(a³ / (mu_parent + mu_body)); the synodic
+# periods quoted ("they meet every …") follow from two such periods. The derived values below
+# (years, days, spheres of influence, sizes in the sky, lowest orbits, the sky at the start,
+# Kiesel's motion and eclipses) are checked by crates/cp-universe/tests/home_system.rs. Travel
+# times are 2 sqrt(d / 9.81 m/s²) for the closest distance d: accelerate half way at 1 g, then
+# brake.
+#
+# Sizes, gravities and climates: SPIELPLAN's table. Edges are even (contract 2.2), lie between
+# 4 and 41 km (contract 1) and were chosen so that the octree's root chunks leave room for the
+# grid offset and the atmosphere. Every grid offset keeps the mean surface (sea level) of all
+# six faces at least an eighth of a chunk away from chunk boundaries on levels 4 to 8; the
+# loader checks that. Sea level 0 means the ocean (or, without liquid, the datum the terrain is
+# built around) lies on the cube's faces. Until Terrain 2.0 (milestone E6) every cube uses the
+# E1 test generator `cubeplanet:hills`; the generator seed defaults to a hash of the body key.
+
+[system]
+key = "cubeplanet:home"
+display_name = "Heimatsystem"
+
+# ---------------------------------------------------------------------------------------------
+[[body]]
+key = "cubeplanet:sonne"
+display_name = "Sonne"
+kind = "star"
+# 70 km: from Heimat's 8192 km the sun spans 0.98°, about twice the real sun, for big sunsets;
+# from Cinder it spans 2.7°, from Relikt 0.4°.
+radius_m = 70_000.0
+# Chosen so that Heimat's year is exactly 172 800 s = 24 solar days of 7200 s (a calendar
+# without leap days): g = (4π² a³ / T² - mu_Heimat) / R² with a = 8192 km, T = 172 800 s.
+# mu = 7.2273e11 m³/s², 176 times Heimat's. Its surface pulls 15 g; nobody lands there.
+surface_gravity_m_s2 = 147.496094532
+# Only turns the surface pattern of the sun (spots, granulation): 12 h, so that spots drift
+# visibly during a session.
+rotation_period_s = 43_200.0
+# The star's equator is the reference plane.
+axial_tilt_deg = 0.0
+
+# ---------------------------------------------------------------------------------------------
+[[body]]
+key = "cubeplanet:heimat"
+display_name = "Heimat"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# 40.96 km, the prototype's large planet; root level 10 (32 768 m), 12 288 m above each face.
+edge_m = 40_960
+# Earth's gravity at the face centres; mu = 4.1146e9 m³/s². Escape speed from a face centre
+# about 642 m/s. A circular orbit 40 km from the centre needs 321 m/s; lower orbits that pass
+# over the edges are pulled in by the cube field (see crates/cp-universe/src/gravity.rs).
+surface_gravity_m_s2 = 9.81
+sea_level_m = 0.0
+# 1365 = 0b101_0101_0101: the faces (20 480 m = 40 · 512 m from the centre) would lie exactly
+# on chunk boundaries of levels 4 to 7; the alternating bit pattern keeps them a third of a
+# chunk away on every level (the loader's best offset for this edge).
+grid_offset = 1365
+# Top of the air 8 km above the faces: room for mountains (about 1 km), clouds (1.5 to 4 km)
+# and high flight; the root chunks keep 2.9 km of room above it.
+atmosphere_height_m = 8000.0
+generator = "cubeplanet:hills"
+# The prototype's large-world seed, as a nod; any number gives a different world.
+generator_seed = 14159
+# Sidereal 6912 s = 7200 · 172 800 / (172 800 + 7200): exactly one 2-hour solar day as in the
+# prototype (the spin is prograde, so a year has 25 sidereal turns and 24 solar days).
+rotation_period_s = 6912.0
+# At the epoch the +Z face (the start face, equatorial) sees the sun 45° high in the morning.
+rotation_phase_deg = 135.0
+# Earth-like seasons: the polar faces (±Y) get midnight sun and polar night, the four
+# equatorial faces stay temperate; seasons last 12 hours of play.
+axial_tilt_deg = 23.5
+
+[body.orbit]
+# 400 half edges, the prototype's distance. Year 172 800 s = 48 h (see the sun's gravity);
+# orbital speed 298 m/s; sphere of influence 1036 km.
+semi_major_axis_m = 8_192_000.0
+# Circular: every day equally long, no eccentric seasons.
+eccentricity = 0.0
+# Heimat's orbit defines the reference plane.
+inclination_deg = 0.0
+ascending_node_deg = 0.0
+periapsis_arg_deg = 0.0
+# Heimat starts at +Z of the sun. With the pole leaning to -X the equinoxes lie at mean
+# longitudes 90° and 270°; 270° is the northern spring equinox, a gentle start.
+mean_anomaly_deg = 270.0
+
+# ---------------------------------------------------------------------------------------------
+[[body]]
+key = "cubeplanet:kiesel"
+display_name = "Kiesel"
+kind = "moon"
+parent = "cubeplanet:heimat"
+# Small: 5.5 km spans 2.6° in Heimat's sky (almost three suns across), Heimat spans 19.6° in
+# Kiesel's.
+# Root level 7 (4096 m) leaves 1346 m above the faces.
+edge_m = 5500
+# Lunar gravity: long jumps, cheap landings; mu = 1.2251e7 m³/s², escape speed about 95 m/s.
+# Its sphere of influence reaches 11.7 km; the cube field lets orbits over the corners
+# survive from about 6.5 km, which leaves a band of low orbits from 6.5 to 11 km.
+surface_gravity_m_s2 = 1.62
+sea_level_m = 0.0
+# 2750 m from the centre already keeps the faces 31 % of a chunk clear on levels 4 to 7.
+grid_offset = 0
+# Airless (SPIELPLAN: vacuum, suits and sealed rooms).
+atmosphere_height_m = 0.0
+generator = "cubeplanet:hills"
+# Tidally locked: its -X face always looks at Heimat, which hangs in the near side's sky and
+# only wobbles a little (below). Rotation = orbit = 4066 s; a day on Kiesel (sunrise to
+# sunrise) lasts 4164 s.
+tidally_locked = true
+# A locked body's tilt is measured from its orbit's normal and leans towards the ecliptic's
+# north. 7.5° is the orbit's 6° plus 1.5°: the pole stands 1.5° from the ecliptic's pole, on the
+# far side from the orbit's, as the Moon's does. Heimat therefore wobbles up to 7.5° north and
+# south in the near side's sky, and up to 2.3° east and west with the eccentricity.
+axial_tilt_deg = 7.5
+
+[body.orbit]
+# SPIELPLAN: about 120 km. Period 4066 s = 68 min, faster than Heimat turns (inside the
+# 171 km synchronous orbit), so Kiesel overtakes the sky: it rises in the west and stays
+# above a face for about 75 minutes; its phases repeat every 69 min. Speed 185 m/s; 1 g gets
+# a ship there in under 4 minutes.
+semi_major_axis_m = 120_000.0
+# A little eccentric: Kiesel's size in the sky breathes by ±2 %.
+eccentricity = 0.02
+# 6° to the ecliptic with the node at 90°, i.e. tipped the opposite way to Heimat's pole: 29.5°
+# to Heimat's equator, so Kiesel also climbs into the sky of the polar faces. Shadows are
+# large against this close orbit: Kiesel crosses Heimat's shadow at every full moon (about
+# 3 minutes of darkness), and at new moon its own shadow sweeps a strip a few km wide over
+# Heimat.
+inclination_deg = 6.0
+ascending_node_deg = 90.0
+periapsis_arg_deg = 0.0
+# At the epoch Kiesel stands 27° above the +Z face's horizon, 100° from the sun and about
+# half lit (no eclipse at the start).
+mean_anomaly_deg = 270.0
+
+# ---------------------------------------------------------------------------------------------
+# The other planets, from the sun outwards. Inner worlds are hot, outer ones cold; difficulty
+# grows with the distance from Heimat (SPIELPLAN: cosy first, harder further out). Small
+# inclinations keep the planets near the ecliptic, as a band through the sky.
+
+[[body]]
+key = "cubeplanet:cinder"
+display_name = "Cinder"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# Small and close to the sun (SPIELPLAN: solar flares, meteor showers, very hard).
+edge_m = 11_000
+# Mercury's gravity; mu = 1.1192e8 m³/s².
+surface_gravity_m_s2 = 3.7
+sea_level_m = 0.0
+# 5500 m from the centre keeps the faces 26 % of a chunk clear on levels 4 to 8.
+grid_offset = 0
+# Airless: meteors strike the ground.
+atmosphere_height_m = 0.0
+generator = "cubeplanet:hills"
+# Slow spin: with the 10.7 h year a day lasts 32 h, so a session is one long scorching day or
+# one long frozen night.
+rotation_period_s = 28_800.0
+axial_tilt_deg = 0.5
+
+[body.orbit]
+# Year 38 401 s = 10.7 h; sphere of influence 90 km. From Heimat at least 5192 km (24 min at
+# 1 g), a bright point of 0.12° at most, never far from the sun.
+semi_major_axis_m = 3_000_000.0
+# Mercury-like: 2760 to 3240 km from the sun.
+eccentricity = 0.08
+inclination_deg = 4.0
+ascending_node_deg = 20.0
+periapsis_arg_deg = 290.0
+# 16° from the sun at the start, lost in its glare.
+mean_anomaly_deg = 0.0
+
+[[body]]
+key = "cubeplanet:ignis"
+display_name = "Ignis"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# Volcanic world (SPIELPLAN: sulphur fog, toxic rain, tungsten; hard).
+edge_m = 22_000
+# Dense, metal-rich (tungsten): heavier than Heimat despite its size; mu = 1.2705e9 m³/s².
+surface_gravity_m_s2 = 10.5
+sea_level_m = 0.0
+# 11 000 m from the centre keeps the faces 26 % of a chunk clear on levels 4 to 8.
+grid_offset = 0
+# Room for sulphur fog and ash clouds; 1384 m of root room above it.
+atmosphere_height_m = 4000.0
+generator = "cubeplanet:hills"
+# 4 h sidereal, 5.1 h solar day: long hot afternoons.
+rotation_period_s = 14_400.0
+axial_tilt_deg = 4.0
+
+[body.orbit]
+# Year 68 154 s = 18.9 h; sphere of influence 348 km. From Heimat at least 3792 km (21 min at
+# 1 g), up to 0.33°; it meets Heimat every 31 h.
+semi_major_axis_m = 4_400_000.0
+eccentricity = 0.05
+inclination_deg = 2.5
+ascending_node_deg = 300.0
+periapsis_arg_deg = 150.0
+# At its greatest elongation (33°) at the start.
+mean_anomaly_deg = 240.0
+
+[[body]]
+key = "cubeplanet:thalassa"
+display_name = "Thalassa"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# Ocean world (SPIELPLAN: storm floods, pressure; mild): large, almost Heimat's size, most of
+# it under water.
+edge_m = 38_000
+# A little below Heimat's; mu = 3.2490e9 m³/s².
+surface_gravity_m_s2 = 9.0
+sea_level_m = 0.0
+# 149 keeps the faces 18 % of a chunk clear on levels 4 to 8 (19 000 m alone would sit only
+# 11 % of a chunk from a level-4 boundary).
+grid_offset = 149
+# Deep, stormy air like Heimat's; 5619 m of root room above it.
+atmosphere_height_m = 8000.0
+generator = "cubeplanet:hills"
+# Fast spin, strong Coriolis forces for cyclones: 1.5 h sidereal, 1.58 h solar day.
+rotation_period_s = 5400.0
+axial_tilt_deg = 12.0
+
+[body.orbit]
+# Heimat's inner neighbour: year 108 379 s = 30.1 h, sphere of influence 691 km. At closest
+# 2192 km from Heimat, 1.0° wide (twice the Moon in Earth's sky; 16 min at 1 g); they meet
+# every 81 h.
+semi_major_axis_m = 6_000_000.0
+eccentricity = 0.02
+inclination_deg = 1.5
+ascending_node_deg = 40.0
+periapsis_arg_deg = 70.0
+# Near its greatest elongation at the start: 48° from the sun, 0.37° wide.
+mean_anomaly_deg = 207.0
+
+[[body]]
+key = "cubeplanet:glacia"
+display_name = "Glacia"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# Ice world (SPIELPLAN: blizzards, cold; lithium, frozen gases; medium).
+edge_m = 23_000
+# mu = 9.2575e8 m³/s².
+surface_gravity_m_s2 = 7.0
+sea_level_m = 0.0
+# 11 500 m from the centre keeps the faces 19 % of a chunk clear on levels 4 to 8.
+grid_offset = 0
+# Thin, cold air; 1384 m of root room above it.
+atmosphere_height_m = 3500.0
+generator = "cubeplanet:hills"
+# 3 h sidereal, 3.1 h solar day: long cold nights.
+rotation_period_s = 10_800.0
+# Strong seasons: long polar nights breed the blizzards.
+axial_tilt_deg = 35.0
+
+[body.orbit]
+# Heimat's outer neighbour: year 269 465 s = 74.9 h, sphere of influence 766 km. At closest
+# 2808 km, 0.47° wide (18 min at 1 g); they meet every 134 h.
+semi_major_axis_m = 11_000_000.0
+eccentricity = 0.03
+inclination_deg = 2.2
+ascending_node_deg = 110.0
+periapsis_arg_deg = 200.0
+# Near opposition at the start (mean longitude 270°, like Heimat): visible all night, 0.5°.
+mean_anomaly_deg = 320.0
+
+[[body]]
+key = "cubeplanet:zephyr"
+display_name = "Zephyr"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# Floating islands (SPIELPLAN: tornadoes, lightning; helium, hydrogen; medium).
+edge_m = 19_000
+# Low gravity, so flying and floating islands come naturally; mu = 3.61e8 m³/s².
+surface_gravity_m_s2 = 4.0
+sea_level_m = 0.0
+# 9500 m from the centre keeps the faces 16 % of a chunk clear on levels 4 to 8.
+grid_offset = 0
+# High, gas-rich air for the islands; 1884 m of root room above it.
+atmosphere_height_m = 5000.0
+generator = "cubeplanet:hills"
+# The fastest spin: 1 h days and violent winds.
+rotation_period_s = 3600.0
+axial_tilt_deg = 8.0
+
+[body.orbit]
+# Year 407 976 s = 113 h, sphere of influence 693 km. At closest 6308 km from Heimat (27 min
+# at 1 g), a point of 0.17°.
+semi_major_axis_m = 14_500_000.0
+eccentricity = 0.04
+inclination_deg = 3.0
+ascending_node_deg = 200.0
+periapsis_arg_deg = 30.0
+# 105° from the sun at the start.
+mean_anomaly_deg = 0.0
+
+[[body]]
+key = "cubeplanet:relikt"
+display_name = "Relikt"
+kind = "planet"
+parent = "cubeplanet:sonne"
+# The outer ruin world (SPIELPLAN: radiation, meteorites; star gate technology; endgame).
+edge_m = 18_000
+# mu = 4.86e8 m³/s².
+surface_gravity_m_s2 = 6.0
+sea_level_m = 0.0
+# 9000 m from the centre would sit 10 % of a chunk from a level-8 boundary; 2449 keeps the
+# faces 18 % clear on levels 4 to 8 (the root has 3435 m of room left above the air).
+grid_offset = 2449
+# Thin air that hardly shields the radiation.
+atmosphere_height_m = 1500.0
+generator = "cubeplanet:hills"
+# 5 h sidereal, 5.1 h solar day.
+rotation_period_s = 18_000.0
+# Strange skies: the sun circles high over the polar faces for half the year.
+axial_tilt_deg = 62.0
+
+[body.orbit]
+# The outermost: year 636 206 s = 177 h (7.4 days), sphere of influence 1050 km. At closest
+# 11 308 km from Heimat (36 min at 1 g), a faint point.
+semi_major_axis_m = 19_500_000.0
+eccentricity = 0.06
+# The most inclined orbit: a captured, older world.
+inclination_deg = 7.0
+ascending_node_deg = 250.0
+periapsis_arg_deg = 100.0
+# 74° from the sun at the start.
+mean_anomaly_deg = 0.0

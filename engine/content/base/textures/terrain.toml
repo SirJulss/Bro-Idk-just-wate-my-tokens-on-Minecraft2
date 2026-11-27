@@ -1,0 +1,84 @@
+# Ground textures.
+#
+# A procedural texture names a cp-proctex recipe, a seed for the recipe's random numbers and,
+# optionally, parameters. Without parameters the recipe paints with its own colours; every
+# ground recipe takes a `color` to replace them.
+#
+# The grass textures and the water texture are painted in pale, near-neutral tones: their
+# materials are tinted with the grass or water colour of the place they are in.
+
+[[texture]]
+key = "cubeplanet:stone"
+provenance = "own"
+procedural = { recipe = "stone", seed = 101 }
+
+[[texture]]
+key = "cubeplanet:dirt"
+provenance = "own"
+procedural = { recipe = "dirt", seed = 102 }
+
+[[texture]]
+key = "cubeplanet:grass_top"
+provenance = "own"
+procedural = { recipe = "grass_top", seed = 103 }
+
+# Same seed as the dirt texture: the recipe paints the dirt of its own seed below the fringe of
+# grass, so the side of a grass block continues the dirt block underneath.
+[[texture]]
+key = "cubeplanet:grass_side"
+provenance = "own"
+procedural = { recipe = "grass_side", seed = 102 }
+
+[[texture]]
+key = "cubeplanet:sand"
+provenance = "own"
+procedural = { recipe = "sand", seed = 105 }
+
+[[texture]]
+key = "cubeplanet:sandstone"
+provenance = "own"
+procedural = { recipe = "sandstone", seed = 106 }
+
+[[texture]]
+key = "cubeplanet:gravel"
+provenance = "own"
+procedural = { recipe = "gravel", seed = 107 }
+
+[[texture]]
+key = "cubeplanet:snow"
+provenance = "own"
+procedural = { recipe = "snow", seed = 108 }
+
+[[texture]]
+key = "cubeplanet:ice"
+provenance = "own"
+procedural = { recipe = "ice", seed = 109 }
+
+[[texture]]
+key = "cubeplanet:clay"
+provenance = "own"
+procedural = { recipe = "clay", seed = 110 }
+
+[[texture]]
+key = "cubeplanet:basalt"
+provenance = "own"
+procedural = { recipe = "basalt", seed = 111 }
+
+[[texture]]
+key = "cubeplanet:limestone"
+provenance = "own"
+procedural = { recipe = "limestone", seed = 112 }
+
+# A warm dark grey, not the recipe's blue-grey: cliffs of it read as rock next to the meadows,
+# not as wet concrete (beauty review E2, round 2).
+[[texture]]
+key = "cubeplanet:slate"
+provenance = "own"
+procedural = { recipe = "slate", seed = 113, params = { color = "#77716a" } }
+
+# The planet core: the columns of basalt in the dark red of cooled magma, so that it cannot be
+# mistaken for the blue-grey basalt above it.
+[[texture]]
+key = "cubeplanet:core"
+provenance = "own"
+procedural = { recipe = "basalt", seed = 114, params = { color = "#5a2a22" } }

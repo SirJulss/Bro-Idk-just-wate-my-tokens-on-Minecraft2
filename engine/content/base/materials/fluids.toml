@@ -1,0 +1,14 @@
+# Fluid materials.
+
+# Water lets light through and takes the water colour of the place.
+[[material]]
+key = "cubeplanet:water"
+texture = "cubeplanet:water"
+tint = "water"
+flags = ["translucent"]
+
+# Lava is an opaque fluid that glows.
+[[material]]
+key = "cubeplanet:lava"
+texture = "cubeplanet:lava"
+emissive = 1.0

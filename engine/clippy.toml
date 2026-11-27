@@ -1,0 +1,75 @@
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+
+# Determinism rule 1 (contract 2.5, 3.3). The standard library forwards these methods to the
+# platform's maths library or leaves the sign of a zero result open, so their bits can differ
+# between machines. Deterministic crates use `cp_core::det` instead. `cp_core::det` itself and
+# the crates outside the determinism rules opt out with a scoped
+# `#[allow(clippy::disallowed_methods)]` and a comment saying why.
+#
+# Verified with clippy 0.1.99: the plain `f64::name` path matches the inherent method of the
+# primitive type (a probe call of each kind was reported, then removed).
+disallowed-methods = [
+    # Transcendental functions: libm through `cp_core::det`.
+    { path = "f64::sin", reason = "not deterministic across platforms; use cp_core::det::sin (contract 2.5)" },
+    { path = "f64::cos", reason = "not deterministic across platforms; use cp_core::det::cos (contract 2.5)" },
+    { path = "f64::tan", reason = "not deterministic across platforms; use cp_core::det::tan (contract 2.5)" },
+    { path = "f64::sin_cos", reason = "not deterministic across platforms; use cp_core::det::sin_cos (contract 2.5)" },
+    { path = "f64::asin", reason = "not deterministic across platforms; use cp_core::det::asin (contract 2.5)" },
+    { path = "f64::acos", reason = "not deterministic across platforms; use cp_core::det::acos (contract 2.5)" },
+    { path = "f64::atan", reason = "not deterministic across platforms; use cp_core::det::atan (contract 2.5)" },
+    { path = "f64::atan2", reason = "not deterministic across platforms; use cp_core::det::atan2 (contract 2.5)" },
+    { path = "f64::sinh", reason = "not deterministic across platforms; use cp_core::det::sinh (contract 2.5)" },
+    { path = "f64::cosh", reason = "not deterministic across platforms; use cp_core::det::cosh (contract 2.5)" },
+    { path = "f64::tanh", reason = "not deterministic across platforms; use cp_core::det::tanh (contract 2.5)" },
+    { path = "f64::asinh", reason = "not deterministic across platforms; transcendental maths only through cp_core::det (contract 2.5)" },
+    { path = "f64::acosh", reason = "not deterministic across platforms; transcendental maths only through cp_core::det (contract 2.5)" },
+    { path = "f64::atanh", reason = "not deterministic across platforms; transcendental maths only through cp_core::det (contract 2.5)" },
+    { path = "f64::exp", reason = "not deterministic across platforms; use cp_core::det::exp (contract 2.5)" },
+    { path = "f64::exp2", reason = "not deterministic across platforms; use cp_core::det::exp2 (contract 2.5)" },
+    { path = "f64::exp_m1", reason = "not deterministic across platforms; use cp_core::det::exp_m1 (contract 2.5)" },
+    { path = "f64::ln", reason = "not deterministic across platforms; use cp_core::det::ln (contract 2.5)" },
+    { path = "f64::ln_1p", reason = "not deterministic across platforms; use cp_core::det::ln_1p (contract 2.5)" },
+    { path = "f64::log", reason = "not deterministic across platforms; use cp_core::det::ln and a division (contract 2.5)" },
+    { path = "f64::log2", reason = "not deterministic across platforms; use cp_core::det::log2 (contract 2.5)" },
+    { path = "f64::log10", reason = "not deterministic across platforms; use cp_core::det::log10 (contract 2.5)" },
+    { path = "f64::powf", reason = "not deterministic across platforms; use cp_core::det::powf (contract 2.5)" },
+    { path = "f64::powi", reason = "rounding depends on the compiler; use cp_core::det::powi (contract 2.5)" },
+    { path = "f64::cbrt", reason = "not deterministic across platforms; use cp_core::det::cbrt (contract 2.5)" },
+    { path = "f64::hypot", reason = "not deterministic across platforms; use cp_core::det::hypot (contract 2.5)" },
+    { path = "f64::mul_add", reason = "fused or not depending on the target; write a * b + c (contract 2.5)" },
+    { path = "f32::sin", reason = "not deterministic across platforms; use cp_core::det::sin (contract 2.5)" },
+    { path = "f32::cos", reason = "not deterministic across platforms; use cp_core::det::cos (contract 2.5)" },
+    { path = "f32::tan", reason = "not deterministic across platforms; use cp_core::det::tan (contract 2.5)" },
+    { path = "f32::sin_cos", reason = "not deterministic across platforms; use cp_core::det::sin_cos (contract 2.5)" },
+    { path = "f32::asin", reason = "not deterministic across platforms; use cp_core::det::asin (contract 2.5)" },
+    { path = "f32::acos", reason = "not deterministic across platforms; use cp_core::det::acos (contract 2.5)" },
+    { path = "f32::atan", reason = "not deterministic across platforms; use cp_core::det::atan (contract 2.5)" },
+    { path = "f32::atan2", reason = "not deterministic across platforms; use cp_core::det::atan2 (contract 2.5)" },
+    { path = "f32::sinh", reason = "not deterministic across platforms; use cp_core::det::sinh (contract 2.5)" },
+    { path = "f32::cosh", reason = "not deterministic across platforms; use cp_core::det::cosh (contract 2.5)" },
+    { path = "f32::tanh", reason = "not deterministic across platforms; use cp_core::det::tanh (contract 2.5)" },
+    { path = "f32::asinh", reason = "not deterministic across platforms; transcendental maths only through cp_core::det (contract 2.5)" },
+    { path = "f32::acosh", reason = "not deterministic across platforms; transcendental maths only through cp_core::det (contract 2.5)" },
+    { path = "f32::atanh", reason = "not deterministic across platforms; transcendental maths only through cp_core::det (contract 2.5)" },
+    { path = "f32::exp", reason = "not deterministic across platforms; use cp_core::det::exp (contract 2.5)" },
+    { path = "f32::exp2", reason = "not deterministic across platforms; use cp_core::det::exp2 (contract 2.5)" },
+    { path = "f32::exp_m1", reason = "not deterministic across platforms; use cp_core::det::exp_m1 (contract 2.5)" },
+    { path = "f32::ln", reason = "not deterministic across platforms; use cp_core::det::ln (contract 2.5)" },
+    { path = "f32::ln_1p", reason = "not deterministic across platforms; use cp_core::det::ln_1p (contract 2.5)" },
+    { path = "f32::log", reason = "not deterministic across platforms; use cp_core::det::ln and a division (contract 2.5)" },
+    { path = "f32::log2", reason = "not deterministic across platforms; use cp_core::det::log2 (contract 2.5)" },
+    { path = "f32::log10", reason = "not deterministic across platforms; use cp_core::det::log10 (contract 2.5)" },
+    { path = "f32::powf", reason = "not deterministic across platforms; use cp_core::det::powf (contract 2.5)" },
+    { path = "f32::powi", reason = "rounding depends on the compiler; use cp_core::det::powi (contract 2.5)" },
+    { path = "f32::cbrt", reason = "not deterministic across platforms; use cp_core::det::cbrt (contract 2.5)" },
+    { path = "f32::hypot", reason = "not deterministic across platforms; use cp_core::det::hypot (contract 2.5)" },
+    { path = "f32::mul_add", reason = "fused or not depending on the target; write a * b + c (contract 2.5)" },
+    # The sign of a zero result is unspecified for +0.0 / -0.0 operands.
+    { path = "f64::min", reason = "zero sign unspecified; use cp_core::det::min (contract 2.5)" },
+    { path = "f64::max", reason = "zero sign unspecified; use cp_core::det::max (contract 2.5)" },
+    { path = "f64::clamp", reason = "zero sign unspecified; use cp_core::det::clamp (contract 2.5)" },
+    { path = "f32::min", reason = "zero sign unspecified; use cp_core::det::min (contract 2.5)" },
+    { path = "f32::max", reason = "zero sign unspecified; use cp_core::det::max (contract 2.5)" },
+    { path = "f32::clamp", reason = "zero sign unspecified; use cp_core::det::clamp (contract 2.5)" },
+]

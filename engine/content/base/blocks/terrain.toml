@@ -1,0 +1,118 @@
+# Air and the ground.
+#
+#   orient     "none" (default) | "up6" | "axis3" | "rot24": how the block may be rotated
+#   render     "cube" (default) | "cutout" | "fluid" | "model" | "none"
+#   solid      default: true for cube, cutout and model blocks
+#   opaque     default: true for cube blocks
+#   structural default false: kept when coarser levels are derived (solid blocks only)
+#   faces      { all = … } | { top = …, side = …, bottom = … } | all six of "+x" … "-z":
+#              one material per face of the unrotated block; may also be written as a
+#              [block.faces] table at the end of the block
+#   hardness   resistance to mining, >= 0; inf = cannot be mined
+#   density    kg/m³
+#   light      emission level 0 .. 15, default 0
+#   tags       labels for gameplay and world generation
+#   cull_group faces between two blocks of the same group are not drawn (see-through blocks)
+#   lod_proxy  model blocks only: the cube-shaped state shown in their place at a distance
+#   [block.ext.<namespace>]  data for code outside the engine, stored as written
+
+# The empty cell. Always block state 0.
+[[block]]
+key = "cubeplanet:air"
+render = "none"
+hardness = 0.0
+density = 0.0
+
+[[block]]
+key = "cubeplanet:stone"
+faces = { all = "cubeplanet:stone" }
+hardness = 6.0
+density = 2700.0
+tags = ["rock"]
+
+[[block]]
+key = "cubeplanet:dirt"
+faces = { all = "cubeplanet:dirt" }
+hardness = 1.0
+density = 1500.0
+tags = ["soil"]
+
+# Grass grows on the outside of a cube planet, so its top can point to any of the six faces.
+[[block]]
+key = "cubeplanet:grass"
+orient = "up6"
+faces = { top = "cubeplanet:grass_top", side = "cubeplanet:grass_side", bottom = "cubeplanet:dirt" }
+hardness = 1.2
+density = 1400.0
+tags = ["soil"]
+
+[[block]]
+key = "cubeplanet:sand"
+faces = { all = "cubeplanet:sand" }
+hardness = 0.8
+density = 1600.0
+tags = ["granular"]
+
+[[block]]
+key = "cubeplanet:sandstone"
+faces = { all = "cubeplanet:sandstone" }
+hardness = 3.5
+density = 2300.0
+tags = ["rock"]
+
+[[block]]
+key = "cubeplanet:gravel"
+faces = { all = "cubeplanet:gravel" }
+hardness = 1.2
+density = 1800.0
+tags = ["granular"]
+
+[[block]]
+key = "cubeplanet:snow"
+faces = { all = "cubeplanet:snow" }
+hardness = 0.4
+density = 400.0
+tags = ["frozen", "granular"]
+
+# Opaque until the renderer has a translucent layer (contract 4.4).
+[[block]]
+key = "cubeplanet:ice"
+faces = { all = "cubeplanet:ice" }
+hardness = 1.5
+density = 917.0
+tags = ["frozen"]
+
+[[block]]
+key = "cubeplanet:clay"
+faces = { all = "cubeplanet:clay" }
+hardness = 1.5
+density = 1900.0
+tags = ["soil"]
+
+[[block]]
+key = "cubeplanet:basalt"
+faces = { all = "cubeplanet:basalt" }
+hardness = 8.0
+density = 2950.0
+tags = ["rock"]
+
+[[block]]
+key = "cubeplanet:limestone"
+faces = { all = "cubeplanet:limestone" }
+hardness = 4.5
+density = 2600.0
+tags = ["rock"]
+
+[[block]]
+key = "cubeplanet:slate"
+faces = { all = "cubeplanet:slate" }
+hardness = 6.5
+density = 2750.0
+tags = ["rock"]
+
+# The innermost part of a planet. Nothing digs through it.
+[[block]]
+key = "cubeplanet:core"
+faces = { all = "cubeplanet:core" }
+hardness = inf
+density = 13000.0

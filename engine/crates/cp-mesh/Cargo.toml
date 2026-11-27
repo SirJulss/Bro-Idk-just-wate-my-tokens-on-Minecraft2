@@ -1,0 +1,17 @@
+[package]
+name = "cp-mesh"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+# cp-voxel (allowed by contract 3.1) is deliberately not a dependency: the mesher takes plain
+# slices (a padded chunk's states, the authored mask, per-state tables), so it builds and tests
+# independently of the storage crate. The caller passes `PaddedChunk`'s cells. Recorded with
+# the other deviations from contract 5.2 in the crate documentation (src/lib.rs).
+[dependencies]
+cp-core = { workspace = true }
+
+bytemuck = { workspace = true }

@@ -1,0 +1,1097 @@
+{
+  "schema": 1,
+  "tool": "cpe bench",
+  "scene": "hills",
+  "build": "release",
+  "adapter": {
+    "name": "NVIDIA GeForce GTX 1080",
+    "backend": "vulkan",
+    "device_type": "DiscreteGpu",
+    "driver": "NVIDIA",
+    "driver_info": "582.53"
+  },
+  "quality_tier": "high",
+  "draw_path": "a",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "frames_per_sub_scene": 300,
+  "warm_up_frames": 30,
+  "method": "every frame is rendered alone (the CPU waits for the GPU after each frame); GPU times are timestamp queries per pass; statistics are mean and nearest-rank percentiles over the measured frames",
+  "sub_scenes": [
+    {
+      "name": "camera_0_valley",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5424,
+      "draw_items": 6898,
+      "triangles": {
+        "count": 300,
+        "mean": 476200,
+        "p50": 476200,
+        "p95": 476200,
+        "p99": 476200,
+        "min": 476200,
+        "max": 476200
+      },
+      "draws": {
+        "count": 300,
+        "mean": 2406,
+        "p50": 2406,
+        "p95": 2406,
+        "p99": 2406,
+        "min": 2406,
+        "max": 2406
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.073426773,
+          "p50": 0.073728,
+          "p95": 0.074752,
+          "p99": 0.075776,
+          "min": 0.07168,
+          "max": 0.075776
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.036556267,
+          "p50": 0.036544,
+          "p95": 0.03728,
+          "p99": 0.037536,
+          "min": 0.035488,
+          "max": 0.037984
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.370411947,
+          "p50": 0.369664,
+          "p95": 0.3768,
+          "p99": 0.377856,
+          "min": 0.36352,
+          "max": 0.37888
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.93469312,
+          "p50": 0.934912,
+          "p95": 0.9472,
+          "p99": 0.948224,
+          "min": 0.924672,
+          "max": 0.949248
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.415088107,
+          "p50": 1.41552,
+          "p95": 1.435264,
+          "p99": 1.436832,
+          "min": 1.39776,
+          "max": 1.437792
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.099606,
+        "p50": 0.109,
+        "p95": 0.1488,
+        "p99": 0.2147,
+        "min": 0.0495,
+        "max": 0.2254
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_1_altitude",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 6867,
+      "draw_items": 8316,
+      "triangles": {
+        "count": 300,
+        "mean": 588282,
+        "p50": 588282,
+        "p95": 588282,
+        "p99": 588282,
+        "min": 588282,
+        "max": 588282
+      },
+      "draws": {
+        "count": 300,
+        "mean": 3841,
+        "p50": 3841,
+        "p95": 3841,
+        "p99": 3841,
+        "min": 3841,
+        "max": 3841
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.073939627,
+          "p50": 0.073728,
+          "p95": 0.074752,
+          "p99": 0.075776,
+          "min": 0.072704,
+          "max": 0.075776
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.036940267,
+          "p50": 0.03696,
+          "p95": 0.037568,
+          "p99": 0.037856,
+          "min": 0.035872,
+          "max": 0.038048
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.53368128,
+          "p50": 0.533504,
+          "p95": 0.542688,
+          "p99": 0.544768,
+          "min": 0.522208,
+          "max": 0.545792
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.337245013,
+          "p50": 1.277952,
+          "p95": 1.573888,
+          "p99": 1.58208,
+          "min": 1.265664,
+          "max": 1.583104
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.981806187,
+          "p50": 1.925536,
+          "p95": 2.221216,
+          "p99": 2.23728,
+          "min": 1.899616,
+          "max": 2.238912
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.109781333,
+        "p50": 0.1095,
+        "p95": 0.2069,
+        "p99": 0.2265,
+        "min": 0.0534,
+        "max": 0.8743
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_2_shore",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5568,
+      "draw_items": 7223,
+      "triangles": {
+        "count": 300,
+        "mean": 474334,
+        "p50": 474334,
+        "p95": 474334,
+        "p99": 474334,
+        "min": 474334,
+        "max": 474334
+      },
+      "draws": {
+        "count": 300,
+        "mean": 2101,
+        "p50": 2101,
+        "p95": 2101,
+        "p99": 2101,
+        "min": 2101,
+        "max": 2101
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.07475136,
+          "p50": 0.074752,
+          "p95": 0.075776,
+          "p99": 0.075776,
+          "min": 0.073728,
+          "max": 0.0768
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.0368176,
+          "p50": 0.0368,
+          "p95": 0.037376,
+          "p99": 0.037728,
+          "min": 0.035904,
+          "max": 0.038176
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.355152747,
+          "p50": 0.355328,
+          "p95": 0.356352,
+          "p99": 0.357376,
+          "min": 0.350208,
+          "max": 0.3584
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.251819413,
+          "p50": 1.205248,
+          "p95": 1.504256,
+          "p99": 1.508352,
+          "min": 1.186816,
+          "max": 1.526784
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.71854112,
+          "p50": 1.672832,
+          "p95": 1.97088,
+          "p99": 1.977088,
+          "min": 1.649344,
+          "max": 1.992448
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.104347333,
+        "p50": 0.1093,
+        "p95": 0.1499,
+        "p99": 0.226,
+        "min": 0.0506,
+        "max": 0.2528
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_3_ridge",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5853,
+      "draw_items": 7578,
+      "triangles": {
+        "count": 300,
+        "mean": 585262,
+        "p50": 585262,
+        "p95": 585262,
+        "p99": 585262,
+        "min": 585262,
+        "max": 585262
+      },
+      "draws": {
+        "count": 300,
+        "mean": 1720,
+        "p50": 1720,
+        "p95": 1720,
+        "p99": 1720,
+        "min": 1720,
+        "max": 1720
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.07523936,
+          "p50": 0.074752,
+          "p95": 0.075776,
+          "p99": 0.0768,
+          "min": 0.073728,
+          "max": 0.0768
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.03680448,
+          "p50": 0.036768,
+          "p95": 0.037504,
+          "p99": 0.037664,
+          "min": 0.035808,
+          "max": 0.038144
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.42687904,
+          "p50": 0.427008,
+          "p95": 0.429056,
+          "p99": 0.43008,
+          "min": 0.422912,
+          "max": 0.432128
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.31999392,
+          "p50": 1.261568,
+          "p95": 1.559552,
+          "p99": 1.5616,
+          "min": 1.256448,
+          "max": 1.563648
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.8589168,
+          "p50": 1.800896,
+          "p95": 2.098688,
+          "p99": 2.101312,
+          "min": 1.793696,
+          "max": 2.103904
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.103465,
+        "p50": 0.1094,
+        "p95": 0.1438,
+        "p99": 0.2148,
+        "min": 0.0521,
+        "max": 0.2297
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_4_forest",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5500,
+      "draw_items": 6971,
+      "triangles": {
+        "count": 300,
+        "mean": 705452,
+        "p50": 705452,
+        "p95": 705452,
+        "p99": 705452,
+        "min": 705452,
+        "max": 705452
+      },
+      "draws": {
+        "count": 300,
+        "mean": 2294,
+        "p50": 2294,
+        "p95": 2294,
+        "p99": 2294,
+        "min": 2294,
+        "max": 2294
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.07547872,
+          "p50": 0.075776,
+          "p95": 0.0768,
+          "p99": 0.0768,
+          "min": 0.073728,
+          "max": 0.0768
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.037327147,
+          "p50": 0.037312,
+          "p95": 0.037984,
+          "p99": 0.038176,
+          "min": 0.036512,
+          "max": 0.038336
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.474055573,
+          "p50": 0.474112,
+          "p95": 0.477184,
+          "p99": 0.478208,
+          "min": 0.470016,
+          "max": 0.479232
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.432999253,
+          "p50": 1.374208,
+          "p95": 1.68448,
+          "p99": 1.6896,
+          "min": 1.355776,
+          "max": 1.71008
+        },
+        "total": {
+          "count": 300,
+          "mean": 2.019860693,
+          "p50": 1.96368,
+          "p95": 2.272576,
+          "p99": 2.280288,
+          "min": 1.93888,
+          "max": 2.30112
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.103386667,
+        "p50": 0.1092,
+        "p95": 0.1245,
+        "p99": 0.2145,
+        "min": 0.0521,
+        "max": 0.2595
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_5_coast",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5679,
+      "draw_items": 7508,
+      "triangles": {
+        "count": 300,
+        "mean": 403316,
+        "p50": 403316,
+        "p95": 403316,
+        "p99": 403316,
+        "min": 403316,
+        "max": 403316
+      },
+      "draws": {
+        "count": 300,
+        "mean": 2028,
+        "p50": 2028,
+        "p95": 2028,
+        "p99": 2028,
+        "min": 2028,
+        "max": 2028
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.073526187,
+          "p50": 0.073728,
+          "p95": 0.074752,
+          "p99": 0.074752,
+          "min": 0.072704,
+          "max": 0.07568
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.036635413,
+          "p50": 0.036608,
+          "p95": 0.037344,
+          "p99": 0.0376,
+          "min": 0.035552,
+          "max": 0.037792
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.309997013,
+          "p50": 0.310272,
+          "p95": 0.314304,
+          "p99": 0.315392,
+          "min": 0.304128,
+          "max": 0.316416
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.991951573,
+          "p50": 0.994304,
+          "p95": 0.997376,
+          "p99": 0.9984,
+          "min": 0.98304,
+          "max": 1.000448
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.412110187,
+          "p50": 1.414656,
+          "p95": 1.421376,
+          "p99": 1.423392,
+          "min": 1.397856,
+          "max": 1.425504
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.101141,
+        "p50": 0.1089,
+        "p95": 0.1306,
+        "p99": 0.2138,
+        "min": 0.0492,
+        "max": 1.1583
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_6_vista_high",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5742,
+      "draw_items": 7532,
+      "triangles": {
+        "count": 300,
+        "mean": 553934,
+        "p50": 553934,
+        "p95": 553934,
+        "p99": 553934,
+        "min": 553934,
+        "max": 553934
+      },
+      "draws": {
+        "count": 300,
+        "mean": 3713,
+        "p50": 3713,
+        "p95": 3713,
+        "p99": 3713,
+        "min": 3713,
+        "max": 3713
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.074733867,
+          "p50": 0.074752,
+          "p95": 0.075776,
+          "p99": 0.075776,
+          "min": 0.073728,
+          "max": 0.075776
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.036888107,
+          "p50": 0.036896,
+          "p95": 0.037472,
+          "p99": 0.037728,
+          "min": 0.035872,
+          "max": 0.037824
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.5568672,
+          "p50": 0.557056,
+          "p95": 0.562176,
+          "p99": 0.564224,
+          "min": 0.545792,
+          "max": 0.567296
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.27849696,
+          "p50": 1.220608,
+          "p95": 1.521664,
+          "p99": 1.527808,
+          "min": 1.205248,
+          "max": 1.540096
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.946986133,
+          "p50": 1.890016,
+          "p95": 2.1928,
+          "p99": 2.201312,
+          "min": 1.865408,
+          "max": 2.211456
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.119909667,
+        "p50": 0.11,
+        "p95": 0.2073,
+        "p99": 0.3135,
+        "min": 0.0564,
+        "max": 2.2432
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "camera_7_vista_low",
+      "description": "a fixed camera of the hills",
+      "draw_path": "a",
+      "chunks": 5558,
+      "draw_items": 7161,
+      "triangles": {
+        "count": 300,
+        "mean": 449966,
+        "p50": 449966,
+        "p95": 449966,
+        "p99": 449966,
+        "min": 449966,
+        "max": 449966
+      },
+      "draws": {
+        "count": 300,
+        "mean": 2652,
+        "p50": 2652,
+        "p95": 2652,
+        "p99": 2652,
+        "min": 2652,
+        "max": 2652
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.07371328,
+          "p50": 0.073728,
+          "p95": 0.074752,
+          "p99": 0.074752,
+          "min": 0.072704,
+          "max": 0.074752
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.036696533,
+          "p50": 0.036704,
+          "p95": 0.037344,
+          "p99": 0.0376,
+          "min": 0.035648,
+          "max": 0.037856
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.416292267,
+          "p50": 0.415744,
+          "p95": 0.41984,
+          "p99": 0.420864,
+          "min": 0.411648,
+          "max": 0.422912
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.169806613,
+          "p50": 1.127424,
+          "p95": 1.421312,
+          "p99": 1.425408,
+          "min": 1.123328,
+          "max": 1.429504
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.696508693,
+          "p50": 1.654272,
+          "p95": 1.948512,
+          "p99": 1.952736,
+          "min": 1.646304,
+          "max": 1.956864
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.106571,
+        "p50": 0.1087,
+        "p95": 0.1474,
+        "p99": 0.2293,
+        "min": 0.0504,
+        "max": 0.8641
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    },
+    {
+      "name": "flight",
+      "description": "the flight path (one loop) through the world of `cpe run` (level 0 to 1 km)",
+      "draw_path": "a",
+      "chunks": 14805,
+      "draw_items": 21272,
+      "triangles": {
+        "count": 300,
+        "mean": 1749868.546666667,
+        "p50": 1763750,
+        "p95": 2046596,
+        "p99": 2103758,
+        "min": 1422588,
+        "max": 2106460
+      },
+      "draws": {
+        "count": 300,
+        "mean": 7874.36,
+        "p50": 7652,
+        "p95": 12307,
+        "p99": 12433,
+        "min": 4682,
+        "max": 12457
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.07546848,
+          "p50": 0.075776,
+          "p95": 0.077824,
+          "p99": 0.077824,
+          "min": 0.072704,
+          "max": 0.078848
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.05822336,
+          "p50": 0.05936,
+          "p95": 0.060992,
+          "p99": 0.061504,
+          "min": 0.052064,
+          "max": 0.061696
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 1.041043733,
+          "p50": 1.014784,
+          "p95": 1.364992,
+          "p99": 1.393664,
+          "min": 0.851968,
+          "max": 1.421312
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.40946816,
+          "p50": 1.393664,
+          "p95": 1.640448,
+          "p99": 1.707008,
+          "min": 1.11104,
+          "max": 1.77664
+        },
+        "total": {
+          "count": 300,
+          "mean": 2.584203733,
+          "p50": 2.549504,
+          "p95": 2.85056,
+          "p99": 3.010336,
+          "min": 2.266144,
+          "max": 3.053024
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.117571,
+        "p50": 0.1115,
+        "p95": 0.1581,
+        "p99": 0.237,
+        "min": 0.0577,
+        "max": 2.3448
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0
+    }
+  ],
+  "startup": [
+    {
+      "name": "camera_0_valley",
+      "chunks_planned": 13354,
+      "empty_by_class": 6194,
+      "empty_meshes": 1736,
+      "drawn": 5424,
+      "drawn_level0": 1100,
+      "drawn_per_level": [
+        1100,
+        940,
+        1004,
+        1157,
+        1223
+      ],
+      "quads": 1668678,
+      "generate_ms": {
+        "count": 7160,
+        "mean": 0.590782039,
+        "p50": 0.5339,
+        "p95": 1.1411,
+        "p99": 1.1964,
+        "min": 0.2024,
+        "max": 1.4474
+      },
+      "mesh_ms": {
+        "count": 5424,
+        "mean": 0.052794432,
+        "p50": 0.0485,
+        "p95": 0.0929,
+        "p99": 0.1104,
+        "min": 0.0143,
+        "max": 0.2437
+      },
+      "wall_seconds": 0.7008426,
+      "chunks_per_second": 19054.207035931
+    },
+    {
+      "name": "camera_1_altitude",
+      "chunks_planned": 14794,
+      "empty_by_class": 6109,
+      "empty_meshes": 1818,
+      "drawn": 6867,
+      "drawn_level0": 1117,
+      "drawn_per_level": [
+        1117,
+        936,
+        1028,
+        1166,
+        1346,
+        1274
+      ],
+      "quads": 1826100,
+      "generate_ms": {
+        "count": 8685,
+        "mean": 0.565192159,
+        "p50": 0.505,
+        "p95": 1.1615,
+        "p99": 1.2028,
+        "min": 0.17,
+        "max": 1.4636
+      },
+      "mesh_ms": {
+        "count": 6867,
+        "mean": 0.049458919,
+        "p50": 0.0456,
+        "p95": 0.0921,
+        "p99": 0.1101,
+        "min": 0.0129,
+        "max": 0.2243
+      },
+      "wall_seconds": 0.7965977,
+      "chunks_per_second": 18571.482192329
+    },
+    {
+      "name": "camera_2_shore",
+      "chunks_planned": 13354,
+      "empty_by_class": 6190,
+      "empty_meshes": 1596,
+      "drawn": 5568,
+      "drawn_level0": 1205,
+      "drawn_per_level": [
+        1205,
+        959,
+        1035,
+        1152,
+        1217
+      ],
+      "quads": 1742190,
+      "generate_ms": {
+        "count": 7164,
+        "mean": 0.560796106,
+        "p50": 0.5044,
+        "p95": 1.073,
+        "p99": 1.1933,
+        "min": 0.1899,
+        "max": 1.4952
+      },
+      "mesh_ms": {
+        "count": 5568,
+        "mean": 0.053526868,
+        "p50": 0.049,
+        "p95": 0.0966,
+        "p99": 0.1159,
+        "min": 0.0137,
+        "max": 0.2432
+      },
+      "wall_seconds": 0.6580431,
+      "chunks_per_second": 20293.503571423
+    },
+    {
+      "name": "camera_3_ridge",
+      "chunks_planned": 13368,
+      "empty_by_class": 5441,
+      "empty_meshes": 2074,
+      "drawn": 5853,
+      "drawn_level0": 1363,
+      "drawn_per_level": [
+        1363,
+        1013,
+        1036,
+        1203,
+        1238
+      ],
+      "quads": 1938206,
+      "generate_ms": {
+        "count": 7927,
+        "mean": 0.683189101,
+        "p50": 0.6437,
+        "p95": 1.1821,
+        "p99": 1.2431,
+        "min": 0.1904,
+        "max": 1.5444
+      },
+      "mesh_ms": {
+        "count": 5853,
+        "mean": 0.054633948,
+        "p50": 0.0488,
+        "p95": 0.1012,
+        "p99": 0.1271,
+        "min": 0.0136,
+        "max": 0.3712
+      },
+      "wall_seconds": 0.8799012,
+      "chunks_per_second": 15192.614807208
+    },
+    {
+      "name": "camera_4_forest",
+      "chunks_planned": 13372,
+      "empty_by_class": 6007,
+      "empty_meshes": 1865,
+      "drawn": 5500,
+      "drawn_level0": 1130,
+      "drawn_per_level": [
+        1130,
+        935,
+        1053,
+        1160,
+        1222
+      ],
+      "quads": 1751705,
+      "generate_ms": {
+        "count": 7365,
+        "mean": 0.683882865,
+        "p50": 0.6539,
+        "p95": 1.1788,
+        "p99": 1.2283,
+        "min": 0.2023,
+        "max": 1.4261
+      },
+      "mesh_ms": {
+        "count": 5500,
+        "mean": 0.053423382,
+        "p50": 0.0484,
+        "p95": 0.0969,
+        "p99": 0.1153,
+        "min": 0.0133,
+        "max": 0.164
+      },
+      "wall_seconds": 0.8761685,
+      "chunks_per_second": 15261.904530921
+    },
+    {
+      "name": "camera_5_coast",
+      "chunks_planned": 13416,
+      "empty_by_class": 6103,
+      "empty_meshes": 1634,
+      "drawn": 5679,
+      "drawn_level0": 1239,
+      "drawn_per_level": [
+        1239,
+        1006,
+        1035,
+        1187,
+        1212
+      ],
+      "quads": 1864716,
+      "generate_ms": {
+        "count": 7313,
+        "mean": 0.65359293,
+        "p50": 0.6068,
+        "p95": 1.1738,
+        "p99": 1.2263,
+        "min": 0.2014,
+        "max": 1.5287
+      },
+      "mesh_ms": {
+        "count": 5679,
+        "mean": 0.05477607,
+        "p50": 0.0497,
+        "p95": 0.101,
+        "p99": 0.1196,
+        "min": 0.0148,
+        "max": 0.2302
+      },
+      "wall_seconds": 0.8109227,
+      "chunks_per_second": 16544.116967006
+    },
+    {
+      "name": "camera_6_vista_high",
+      "chunks_planned": 13370,
+      "empty_by_class": 5643,
+      "empty_meshes": 1985,
+      "drawn": 5742,
+      "drawn_level0": 1345,
+      "drawn_per_level": [
+        1345,
+        963,
+        1004,
+        1218,
+        1212
+      ],
+      "quads": 1927397,
+      "generate_ms": {
+        "count": 7727,
+        "mean": 0.706166546,
+        "p50": 0.6648,
+        "p95": 1.1838,
+        "p99": 1.2292,
+        "min": 0.2027,
+        "max": 1.4655
+      },
+      "mesh_ms": {
+        "count": 5742,
+        "mean": 0.055415099,
+        "p50": 0.05,
+        "p95": 0.1009,
+        "p99": 0.1219,
+        "min": 0.0142,
+        "max": 0.2978
+      },
+      "wall_seconds": 0.9066956,
+      "chunks_per_second": 14745.852963222
+    },
+    {
+      "name": "camera_7_vista_low",
+      "chunks_planned": 13370,
+      "empty_by_class": 6107,
+      "empty_meshes": 1705,
+      "drawn": 5558,
+      "drawn_level0": 1167,
+      "drawn_per_level": [
+        1167,
+        1011,
+        995,
+        1177,
+        1208
+      ],
+      "quads": 1755382,
+      "generate_ms": {
+        "count": 7263,
+        "mean": 0.585521024,
+        "p50": 0.5316,
+        "p95": 1.1051,
+        "p99": 1.2095,
+        "min": 0.1933,
+        "max": 1.4184
+      },
+      "mesh_ms": {
+        "count": 5558,
+        "mean": 0.053662666,
+        "p50": 0.049,
+        "p95": 0.0942,
+        "p99": 0.111,
+        "min": 0.0145,
+        "max": 0.2721
+      },
+      "wall_seconds": 0.6827607,
+      "chunks_per_second": 19582.26359543
+    },
+    {
+      "name": "flight",
+      "chunks_planned": 50726,
+      "empty_by_class": 27783,
+      "empty_meshes": 8138,
+      "drawn": 14805,
+      "drawn_level0": 4971,
+      "drawn_per_level": [
+        4971,
+        4103,
+        4437,
+        1294
+      ],
+      "quads": 5650847,
+      "generate_ms": {
+        "count": 22943,
+        "mean": 0.638294687,
+        "p50": 0.6143,
+        "p95": 1.1784,
+        "p99": 1.2135,
+        "min": 0.241,
+        "max": 1.5387
+      },
+      "mesh_ms": {
+        "count": 14805,
+        "mean": 0.060094468,
+        "p50": 0.057,
+        "p95": 0.0993,
+        "p99": 0.1156,
+        "min": 0.0152,
+        "max": 0.2384
+      },
+      "wall_seconds": 2.7125076,
+      "chunks_per_second": 18700.77709644
+    }
+  ]
+}

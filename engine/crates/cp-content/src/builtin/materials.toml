@@ -1,0 +1,48 @@
+# Materials of `Registry::builtin_minimal`. Same definitions as in content/base.
+
+[[material]]
+key = "cubeplanet:stone"
+texture = "cubeplanet:stone"
+
+[[material]]
+key = "cubeplanet:dirt"
+texture = "cubeplanet:dirt"
+
+[[material]]
+key = "cubeplanet:grass_top"
+texture = "cubeplanet:grass_top"
+tint = "grass"
+
+[[material]]
+key = "cubeplanet:grass_side"
+texture = "cubeplanet:grass_side"
+tint = "grass"
+
+[[material]]
+key = "cubeplanet:sand"
+texture = "cubeplanet:sand"
+
+[[material]]
+key = "cubeplanet:log_oak_side"
+texture = "cubeplanet:log_oak_side"
+
+[[material]]
+key = "cubeplanet:log_oak_top"
+texture = "cubeplanet:log_oak_top"
+
+[[material]]
+key = "cubeplanet:leaves_oak"
+texture = "cubeplanet:leaves_oak"
+tint = "foliage"
+flags = ["cutout"]
+
+[[material]]
+key = "cubeplanet:water"
+texture = "cubeplanet:water"
+tint = "water"
+flags = ["translucent"]
+
+[[material]]
+key = "cubeplanet:lava"
+texture = "cubeplanet:lava"
+emissive = 1.0

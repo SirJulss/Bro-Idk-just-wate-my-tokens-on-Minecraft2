@@ -1,0 +1,18 @@
+# Ore materials. The rock dominates the surface, so the ores stay non-metallic; the texture
+# makes the pieces of ore smoother than the rock around them.
+
+[[material]]
+key = "cubeplanet:ore_copper"
+texture = "cubeplanet:ore_copper"
+
+[[material]]
+key = "cubeplanet:ore_tin"
+texture = "cubeplanet:ore_tin"
+
+[[material]]
+key = "cubeplanet:ore_iron"
+texture = "cubeplanet:ore_iron"
+
+[[material]]
+key = "cubeplanet:ore_coal"
+texture = "cubeplanet:ore_coal"

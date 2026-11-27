@@ -1,0 +1,127 @@
+# Logs, planks and leaves of the four tree species.
+#
+# A log lies along one of the three axes (`axis3`): its end grain shows on both faces of that
+# axis and the bark on the other four. Logs are `structural`, so a trunk is kept when coarser
+# levels are derived instead of vanishing at a distance. Leaves are cut-out blocks: solid, but
+# not opaque; all species share the cull group `leaves`, so no faces are drawn inside a
+# canopy, not even where two species meet.
+
+# --- oak --------------------------------------------------------------------------------------
+
+[[block]]
+key = "cubeplanet:log_oak"
+orient = "axis3"
+structural = true
+hardness = 3.0
+density = 750.0
+tags = ["log", "oak", "wood"]
+[block.faces]
+top = "cubeplanet:log_oak_top"
+side = "cubeplanet:log_oak_side"
+bottom = "cubeplanet:log_oak_top"
+
+[[block]]
+key = "cubeplanet:planks_oak"
+faces = { all = "cubeplanet:planks_oak" }
+hardness = 2.5
+density = 750.0
+tags = ["oak", "planks", "wood"]
+
+[[block]]
+key = "cubeplanet:leaves_oak"
+render = "cutout"
+cull_group = "leaves"
+faces = { all = "cubeplanet:leaves_oak" }
+hardness = 0.3
+density = 150.0
+tags = ["leaves", "oak"]
+
+# --- birch ------------------------------------------------------------------------------------
+
+[[block]]
+key = "cubeplanet:log_birch"
+orient = "axis3"
+structural = true
+hardness = 2.8
+density = 650.0
+tags = ["birch", "log", "wood"]
+[block.faces]
+top = "cubeplanet:log_birch_top"
+side = "cubeplanet:log_birch_side"
+bottom = "cubeplanet:log_birch_top"
+
+[[block]]
+key = "cubeplanet:planks_birch"
+faces = { all = "cubeplanet:planks_birch" }
+hardness = 2.3
+density = 650.0
+tags = ["birch", "planks", "wood"]
+
+[[block]]
+key = "cubeplanet:leaves_birch"
+render = "cutout"
+cull_group = "leaves"
+faces = { all = "cubeplanet:leaves_birch" }
+hardness = 0.3
+density = 140.0
+tags = ["birch", "leaves"]
+
+# --- spruce -----------------------------------------------------------------------------------
+
+[[block]]
+key = "cubeplanet:log_spruce"
+orient = "axis3"
+structural = true
+hardness = 2.5
+density = 450.0
+tags = ["log", "spruce", "wood"]
+[block.faces]
+top = "cubeplanet:log_spruce_top"
+side = "cubeplanet:log_spruce_side"
+bottom = "cubeplanet:log_spruce_top"
+
+[[block]]
+key = "cubeplanet:planks_spruce"
+faces = { all = "cubeplanet:planks_spruce" }
+hardness = 2.0
+density = 450.0
+tags = ["planks", "spruce", "wood"]
+
+[[block]]
+key = "cubeplanet:leaves_spruce"
+render = "cutout"
+cull_group = "leaves"
+faces = { all = "cubeplanet:leaves_spruce" }
+hardness = 0.3
+density = 180.0
+tags = ["leaves", "spruce"]
+
+# --- cherry -----------------------------------------------------------------------------------
+
+[[block]]
+key = "cubeplanet:log_cherry"
+orient = "axis3"
+structural = true
+hardness = 2.8
+density = 600.0
+tags = ["cherry", "log", "wood"]
+[block.faces]
+top = "cubeplanet:log_cherry_top"
+side = "cubeplanet:log_cherry_side"
+bottom = "cubeplanet:log_cherry_top"
+
+[[block]]
+key = "cubeplanet:planks_cherry"
+faces = { all = "cubeplanet:planks_cherry" }
+hardness = 2.3
+density = 600.0
+tags = ["cherry", "planks", "wood"]
+
+[[block]]
+key = "cubeplanet:leaves_cherry"
+render = "cutout"
+cull_group = "leaves"
+faces = { all = "cubeplanet:leaves_cherry" }
+hardness = 0.3
+density = 130.0
+tags = ["cherry", "leaves"]

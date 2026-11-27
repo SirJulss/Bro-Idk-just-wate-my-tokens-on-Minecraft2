@@ -1,0 +1,16 @@
+[package]
+name = "cp-sim"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+cp-core = { workspace = true }
+cp-universe = { workspace = true }
+cp-voxel = { workspace = true }
+
+log = { workspace = true }
+thiserror = { workspace = true }

@@ -1,0 +1,42 @@
+# Ore textures: stone with pieces of ore.
+#
+# Parameters (colours are sRGB "#rrggbb", everything else names a variant of the recipe):
+#   ore     colour of the pieces; the rock around them keeps the recipe's stone colour
+#   accent  optional patina or rust on the shaded rims of the pieces and on the rock below them
+#   style   "nuggets" (a few shiny pieces) | "flecks" (many small specks)
+#           | "lumps" (large dull chunks) | "crystals" (angular crystals)
+#
+# All four use the seed of the stone texture: the recipe paints the ore into the stone of its
+# own seed, so an ore block continues the pattern of the stone blocks around it.
+#
+# The ores are told apart at a glance by colour, also in a dark tunnel, and by the shape of
+# their pieces: every ore has a style of its own. Colours, accents and styles are the
+# cp-proctex presets (`cp_proctex::presets`), with one exception: iron is lightened from the
+# preset's #ccba9c to #d0bea0 (CIELAB difference 1.5, below what the eye notices), so that it
+# keeps the distance of at least 25 to the host stone that a test asks for (the preset has 24.9).
+# Any two ore colours are more than 30 apart in CIELAB (a difference of about 2 is just
+# noticeable); a test keeps them at least 25 apart.
+#   copper   #d27a4c orange, green patina      nuggets
+#   tin      #b0c4da pale silver-blue          crystals
+#   iron     #d0bea0 pale beige, rust          flecks
+#   coal     #38363e near black                lumps
+
+[[texture]]
+key = "cubeplanet:ore_copper"
+provenance = "own"
+procedural = { recipe = "ore", seed = 101, params = { ore = "#d27a4c", accent = "#4a8c84", style = "nuggets" } }
+
+[[texture]]
+key = "cubeplanet:ore_tin"
+provenance = "own"
+procedural = { recipe = "ore", seed = 101, params = { ore = "#b0c4da", style = "crystals" } }
+
+[[texture]]
+key = "cubeplanet:ore_iron"
+provenance = "own"
+procedural = { recipe = "ore", seed = 101, params = { ore = "#d0bea0", accent = "#965234", style = "flecks" } }
+
+[[texture]]
+key = "cubeplanet:ore_coal"
+provenance = "own"
+procedural = { recipe = "ore", seed = 101, params = { ore = "#38363e", style = "lumps" } }

@@ -1,0 +1,29 @@
+# Ores of the home planet: stone that carries copper, tin, iron or coal.
+
+[[block]]
+key = "cubeplanet:ore_copper"
+faces = { all = "cubeplanet:ore_copper" }
+hardness = 7.0
+density = 3100.0
+tags = ["copper", "ore", "rock"]
+
+[[block]]
+key = "cubeplanet:ore_tin"
+faces = { all = "cubeplanet:ore_tin" }
+hardness = 7.0
+density = 3300.0
+tags = ["ore", "rock", "tin"]
+
+[[block]]
+key = "cubeplanet:ore_iron"
+faces = { all = "cubeplanet:ore_iron" }
+hardness = 8.0
+density = 3600.0
+tags = ["iron", "ore", "rock"]
+
+[[block]]
+key = "cubeplanet:ore_coal"
+faces = { all = "cubeplanet:ore_coal" }
+hardness = 5.0
+density = 1900.0
+tags = ["coal", "ore", "rock"]

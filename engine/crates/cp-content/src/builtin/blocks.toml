@@ -1,0 +1,74 @@
+# Blocks of `Registry::builtin_minimal`. Same definitions as in content/base.
+
+[[block]]
+key = "cubeplanet:air"
+render = "none"
+hardness = 0.0
+density = 0.0
+
+[[block]]
+key = "cubeplanet:stone"
+faces = { all = "cubeplanet:stone" }
+hardness = 6.0
+density = 2700.0
+tags = ["rock"]
+
+[[block]]
+key = "cubeplanet:dirt"
+faces = { all = "cubeplanet:dirt" }
+hardness = 1.0
+density = 1500.0
+tags = ["soil"]
+
+[[block]]
+key = "cubeplanet:grass"
+orient = "up6"
+faces = { top = "cubeplanet:grass_top", side = "cubeplanet:grass_side", bottom = "cubeplanet:dirt" }
+hardness = 1.2
+density = 1400.0
+tags = ["soil"]
+
+[[block]]
+key = "cubeplanet:sand"
+faces = { all = "cubeplanet:sand" }
+hardness = 0.8
+density = 1600.0
+tags = ["granular"]
+
+[[block]]
+key = "cubeplanet:log_oak"
+orient = "axis3"
+structural = true
+hardness = 3.0
+density = 750.0
+tags = ["log", "oak", "wood"]
+[block.faces]
+top = "cubeplanet:log_oak_top"
+side = "cubeplanet:log_oak_side"
+bottom = "cubeplanet:log_oak_top"
+
+[[block]]
+key = "cubeplanet:leaves_oak"
+render = "cutout"
+faces = { all = "cubeplanet:leaves_oak" }
+cull_group = "leaves"
+hardness = 0.3
+density = 150.0
+tags = ["leaves", "oak"]
+
+[[block]]
+key = "cubeplanet:water"
+render = "fluid"
+faces = { all = "cubeplanet:water" }
+cull_group = "water"
+hardness = 0.0
+density = 1000.0
+
+[[block]]
+key = "cubeplanet:lava"
+render = "fluid"
+faces = { all = "cubeplanet:lava" }
+cull_group = "lava"
+hardness = 0.0
+density = 3100.0
+light = 15

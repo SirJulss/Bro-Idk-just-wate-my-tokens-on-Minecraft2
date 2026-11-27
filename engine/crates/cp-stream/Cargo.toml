@@ -1,0 +1,20 @@
+[package]
+name = "cp-stream"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+cp-core = { workspace = true }
+cp-jobs = { workspace = true }
+cp-mesh = { workspace = true }
+cp-voxel = { workspace = true }
+cp-worldgen = { workspace = true }
+
+crossbeam-channel = { workspace = true }
+log = { workspace = true }
+parking_lot = { workspace = true }
+rustc-hash = { workspace = true }

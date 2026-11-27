@@ -1,0 +1,20 @@
+# Fluids: not solid, not opaque, drawn in the fluid layer. Fluids are never mined, so their
+# hardness is 0. Each fluid has a cull group of its own: no faces are drawn inside a body of
+# water or lava, but where water meets lava both surfaces are.
+
+[[block]]
+key = "cubeplanet:water"
+render = "fluid"
+faces = { all = "cubeplanet:water" }
+cull_group = "water"
+hardness = 0.0
+density = 1000.0
+
+[[block]]
+key = "cubeplanet:lava"
+render = "fluid"
+faces = { all = "cubeplanet:lava" }
+cull_group = "lava"
+hardness = 0.0
+density = 3100.0
+light = 15

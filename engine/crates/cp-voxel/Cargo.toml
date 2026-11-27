@@ -1,0 +1,16 @@
+[package]
+name = "cp-voxel"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+cp-core = { workspace = true }
+
+bytemuck = { workspace = true }
+parking_lot = { workspace = true }
+rustc-hash = { workspace = true }
+thiserror = { workspace = true }

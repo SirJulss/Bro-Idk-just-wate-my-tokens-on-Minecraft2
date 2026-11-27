@@ -1,0 +1,638 @@
+{
+  "schema": 1,
+  "tool": "cpe bench",
+  "scene": "calib",
+  "build": "release",
+  "adapter": {
+    "name": "NVIDIA GeForce GTX 1080",
+    "backend": "vulkan",
+    "device_type": "DiscreteGpu",
+    "driver": "NVIDIA",
+    "driver_info": "582.53"
+  },
+  "quality_tier": "high",
+  "draw_path": "a",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "frames_per_sub_scene": 300,
+  "warm_up_frames": 30,
+  "method": "every frame is rendered alone (the CPU waits for the GPU after each frame); GPU times are timestamp queries per pass; statistics are mean and nearest-rank percentiles over the measured frames",
+  "sub_scenes": [
+    {
+      "name": "triangles_1m",
+      "description": "4,000 chunks / 4 M quads resident, 1.0 M visible triangles in 500 draws",
+      "draw_path": "a",
+      "chunks": 4000,
+      "draw_items": 4000,
+      "triangles": {
+        "count": 300,
+        "mean": 1000000,
+        "p50": 1000000,
+        "p95": 1000000,
+        "p99": 1000000,
+        "min": 1000000,
+        "max": 1000000
+      },
+      "draws": {
+        "count": 300,
+        "mean": 500,
+        "p50": 500,
+        "p95": 500,
+        "p99": 500,
+        "min": 500,
+        "max": 500
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.074601813,
+          "p50": 0.073728,
+          "p95": 0.0768,
+          "p99": 0.083968,
+          "min": 0.072704,
+          "max": 0.084992
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.033631147,
+          "p50": 0.033312,
+          "p95": 0.035008,
+          "p99": 0.037728,
+          "min": 0.03232,
+          "max": 0.038048
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.599647893,
+          "p50": 0.590848,
+          "p95": 0.625664,
+          "p99": 0.689152,
+          "min": 0.576512,
+          "max": 0.70144
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.105629867,
+          "p50": 1.037312,
+          "p95": 1.371136,
+          "p99": 1.390592,
+          "min": 1.022976,
+          "max": 1.526784
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.81351072,
+          "p50": 1.736032,
+          "p95": 2.097024,
+          "p99": 2.118272,
+          "min": 1.708544,
+          "max": 2.335616
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.107317667,
+        "p50": 0.1114,
+        "p95": 0.1635,
+        "p99": 0.2271,
+        "min": 0.0514,
+        "max": 0.2598
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 1000000,
+      "expected_draws": 500,
+      "resident_chunks": 4000,
+      "resident_quads": 4000000
+    },
+    {
+      "name": "triangles_2m",
+      "description": "4,000 chunks / 4 M quads resident, 2.0 M visible triangles in 1,000 draws",
+      "draw_path": "a",
+      "chunks": 4000,
+      "draw_items": 4000,
+      "triangles": {
+        "count": 300,
+        "mean": 2000000,
+        "p50": 2000000,
+        "p95": 2000000,
+        "p99": 2000000,
+        "min": 2000000,
+        "max": 2000000
+      },
+      "draws": {
+        "count": 300,
+        "mean": 1000,
+        "p50": 1000,
+        "p95": 1000,
+        "p99": 1000,
+        "min": 1000,
+        "max": 1000
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.073472,
+          "p50": 0.073728,
+          "p95": 0.073728,
+          "p99": 0.074752,
+          "min": 0.072704,
+          "max": 0.075776
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.03312608,
+          "p50": 0.03312,
+          "p95": 0.033664,
+          "p99": 0.033792,
+          "min": 0.03232,
+          "max": 0.034176
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.910320213,
+          "p50": 0.910336,
+          "p95": 0.912352,
+          "p99": 0.912384,
+          "min": 0.908288,
+          "max": 0.915424
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 1.02965248,
+          "p50": 0.970752,
+          "p95": 1.268736,
+          "p99": 1.273856,
+          "min": 0.96256,
+          "max": 1.31072
+        },
+        "total": {
+          "count": 300,
+          "mean": 2.046570773,
+          "p50": 1.988064,
+          "p95": 2.286336,
+          "p99": 2.292992,
+          "min": 1.978336,
+          "max": 2.327712
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.110123333,
+        "p50": 0.1142,
+        "p95": 0.1356,
+        "p99": 0.2256,
+        "min": 0.0566,
+        "max": 0.4454
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 2000000,
+      "expected_draws": 1000,
+      "resident_chunks": 4000,
+      "resident_quads": 4000000
+    },
+    {
+      "name": "draws_5k",
+      "description": "1.0 M visible triangles in 5,000 indirect draws",
+      "draw_path": "a",
+      "chunks": 5000,
+      "draw_items": 5000,
+      "triangles": {
+        "count": 300,
+        "mean": 1000000,
+        "p50": 1000000,
+        "p95": 1000000,
+        "p99": 1000000,
+        "min": 1000000,
+        "max": 1000000
+      },
+      "draws": {
+        "count": 300,
+        "mean": 5000,
+        "p50": 5000,
+        "p95": 5000,
+        "p99": 5000,
+        "min": 5000,
+        "max": 5000
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.073437867,
+          "p50": 0.073728,
+          "p95": 0.073728,
+          "p99": 0.074752,
+          "min": 0.072704,
+          "max": 0.074752
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.034311787,
+          "p50": 0.034336,
+          "p95": 0.03488,
+          "p99": 0.03504,
+          "min": 0.033472,
+          "max": 0.035296
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.585126507,
+          "p50": 0.585696,
+          "p95": 0.595968,
+          "p99": 0.601088,
+          "min": 0.566272,
+          "max": 0.606208
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.769437013,
+          "p50": 0.714752,
+          "p95": 1.007616,
+          "p99": 1.010688,
+          "min": 0.707584,
+          "max": 1.01376
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.462313173,
+          "p50": 1.409024,
+          "p95": 1.70048,
+          "p99": 1.706176,
+          "min": 1.386336,
+          "max": 1.71504
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.098849667,
+        "p50": 0.113,
+        "p95": 0.121,
+        "p99": 0.2238,
+        "min": 0.0516,
+        "max": 0.2348
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 1000000,
+      "expected_draws": 5000,
+      "resident_chunks": 5000,
+      "resident_quads": 500000
+    },
+    {
+      "name": "draws_20k",
+      "description": "1.0 M visible triangles in 20,000 indirect draws",
+      "draw_path": "a",
+      "chunks": 20000,
+      "draw_items": 20000,
+      "triangles": {
+        "count": 300,
+        "mean": 1000000,
+        "p50": 1000000,
+        "p95": 1000000,
+        "p99": 1000000,
+        "min": 1000000,
+        "max": 1000000
+      },
+      "draws": {
+        "count": 300,
+        "mean": 20000,
+        "p50": 20000,
+        "p95": 20000,
+        "p99": 20000,
+        "min": 20000,
+        "max": 20000
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.073755307,
+          "p50": 0.073728,
+          "p95": 0.074752,
+          "p99": 0.074752,
+          "min": 0.072704,
+          "max": 0.075776
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.049843627,
+          "p50": 0.049856,
+          "p95": 0.050496,
+          "p99": 0.050784,
+          "min": 0.04864,
+          "max": 0.051424
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.632814293,
+          "p50": 0.632832,
+          "p95": 0.637952,
+          "p99": 0.639872,
+          "min": 0.625664,
+          "max": 0.642048
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.77280256,
+          "p50": 0.712704,
+          "p95": 1.007616,
+          "p99": 1.017856,
+          "min": 0.705536,
+          "max": 1.048576
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.529215787,
+          "p50": 1.470432,
+          "p95": 1.765408,
+          "p99": 1.773312,
+          "min": 1.455968,
+          "max": 1.805856
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.104428,
+        "p50": 0.1131,
+        "p95": 0.1431,
+        "p99": 0.2308,
+        "min": 0.0522,
+        "max": 0.2444
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 1000000,
+      "expected_draws": 20000,
+      "resident_chunks": 20000,
+      "resident_quads": 500000
+    },
+    {
+      "name": "baseline_1",
+      "description": "one one-quad draw: the fixed cost of the G-buffer pass",
+      "draw_path": "a",
+      "chunks": 1,
+      "draw_items": 1,
+      "triangles": {
+        "count": 300,
+        "mean": 2,
+        "p50": 2,
+        "p95": 2,
+        "p99": 2,
+        "min": 2,
+        "max": 2
+      },
+      "draws": {
+        "count": 300,
+        "mean": 1,
+        "p50": 1,
+        "p95": 1,
+        "p99": 1,
+        "min": 1,
+        "max": 1
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.071205547,
+          "p50": 0.07168,
+          "p95": 0.07168,
+          "p99": 0.07168,
+          "min": 0.070656,
+          "max": 0.072704
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.023136,
+          "p50": 0.023168,
+          "p95": 0.023712,
+          "p99": 0.024096,
+          "min": 0.022176,
+          "max": 0.024512
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.016902933,
+          "p50": 0.016384,
+          "p95": 0.018304,
+          "p99": 0.018432,
+          "min": 0.01536,
+          "max": 0.018432
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.3644928,
+          "p50": 0.36352,
+          "p95": 0.367616,
+          "p99": 0.36864,
+          "min": 0.361472,
+          "max": 0.369664
+        },
+        "total": {
+          "count": 300,
+          "mean": 0.47573728,
+          "p50": 0.475424,
+          "p95": 0.479296,
+          "p99": 0.480032,
+          "min": 0.471648,
+          "max": 0.48224
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.074799,
+        "p50": 0.0574,
+        "p95": 0.1176,
+        "p99": 0.2167,
+        "min": 0.0458,
+        "max": 0.2251
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 2,
+      "expected_draws": 1,
+      "resident_chunks": 1,
+      "resident_quads": 1
+    },
+    {
+      "name": "quads_5k",
+      "description": "5,000 one-quad draws: cost per draw",
+      "draw_path": "a",
+      "chunks": 5000,
+      "draw_items": 5000,
+      "triangles": {
+        "count": 300,
+        "mean": 10000,
+        "p50": 10000,
+        "p95": 10000,
+        "p99": 10000,
+        "min": 10000,
+        "max": 10000
+      },
+      "draws": {
+        "count": 300,
+        "mean": 5000,
+        "p50": 5000,
+        "p95": 5000,
+        "p99": 5000,
+        "min": 5000,
+        "max": 5000
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.071697067,
+          "p50": 0.07168,
+          "p95": 0.072704,
+          "p99": 0.072704,
+          "min": 0.070656,
+          "max": 0.072704
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.034396587,
+          "p50": 0.034368,
+          "p95": 0.034976,
+          "p99": 0.035264,
+          "min": 0.033568,
+          "max": 0.035424
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.08295968,
+          "p50": 0.082944,
+          "p95": 0.083968,
+          "p99": 0.084992,
+          "min": 0.080896,
+          "max": 0.085984
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.67743744,
+          "p50": 0.676864,
+          "p95": 0.683008,
+          "p99": 0.68608,
+          "min": 0.671744,
+          "max": 0.693248
+        },
+        "total": {
+          "count": 300,
+          "mean": 0.866490773,
+          "p50": 0.866112,
+          "p95": 0.871744,
+          "p99": 0.875424,
+          "min": 0.859744,
+          "max": 0.883008
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.089928,
+        "p50": 0.0909,
+        "p95": 0.1233,
+        "p99": 0.2324,
+        "min": 0.0473,
+        "max": 0.3228
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 10000,
+      "expected_draws": 5000,
+      "resident_chunks": 5000,
+      "resident_quads": 5000,
+      "ns_per_draw": 13.213992132,
+      "ns_per_draw_method": "(G-buffer mean - one-draw baseline mean) / (draws - 1)"
+    },
+    {
+      "name": "quads_20k",
+      "description": "20,000 one-quad draws: cost per draw",
+      "draw_path": "a",
+      "chunks": 20000,
+      "draw_items": 20000,
+      "triangles": {
+        "count": 300,
+        "mean": 40000,
+        "p50": 40000,
+        "p95": 40000,
+        "p99": 40000,
+        "min": 40000,
+        "max": 40000
+      },
+      "draws": {
+        "count": 300,
+        "mean": 20000,
+        "p50": 20000,
+        "p95": 20000,
+        "p99": 20000,
+        "min": 20000,
+        "max": 20000
+      },
+      "gpu_ms": {
+        "composite": {
+          "count": 300,
+          "mean": 0.07221248,
+          "p50": 0.072704,
+          "p95": 0.072704,
+          "p99": 0.072704,
+          "min": 0.070656,
+          "max": 0.073728
+        },
+        "cull": {
+          "count": 300,
+          "mean": 0.04957664,
+          "p50": 0.049568,
+          "p95": 0.050208,
+          "p99": 0.050528,
+          "min": 0.048512,
+          "max": 0.051008
+        },
+        "gbuffer": {
+          "count": 300,
+          "mean": 0.283861973,
+          "p50": 0.283648,
+          "p95": 0.284672,
+          "p99": 0.284672,
+          "min": 0.28352,
+          "max": 0.284672
+        },
+        "lighting": {
+          "count": 300,
+          "mean": 0.691712,
+          "p50": 0.6912,
+          "p95": 0.697344,
+          "p99": 0.70144,
+          "min": 0.68608,
+          "max": 0.705536
+        },
+        "total": {
+          "count": 300,
+          "mean": 1.097363093,
+          "p50": 1.097024,
+          "p95": 1.102656,
+          "p99": 1.107296,
+          "min": 1.090912,
+          "max": 1.110816
+        }
+      },
+      "cpu_frame_ms": {
+        "count": 300,
+        "mean": 0.098542667,
+        "p50": 0.1121,
+        "p95": 0.1199,
+        "p99": 0.2161,
+        "min": 0.0485,
+        "max": 2.317
+      },
+      "cpu_cull_ms": null,
+      "frames_without_timings": 0,
+      "expected_triangles": 40000,
+      "expected_draws": 20000,
+      "resident_chunks": 20000,
+      "resident_quads": 20000,
+      "ns_per_draw": 13.348619431,
+      "ns_per_draw_method": "(G-buffer mean - one-draw baseline mean) / (draws - 1)"
+    }
+  ],
+  "startup": []
+}

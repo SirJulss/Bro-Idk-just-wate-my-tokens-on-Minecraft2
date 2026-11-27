@@ -1,0 +1,82 @@
+# Tree materials: bark, end grain, planks and leaves of the four species.
+#
+# Oak leaves take the foliage colour of the place they grow in (`tint = "foliage"`; their
+# texture is painted near-neutral for that). Birch, spruce and cherry carry their own colour in
+# the texture and are not tinted, so they look the same in every climate.
+
+# --- oak --------------------------------------------------------------------------------------
+
+[[material]]
+key = "cubeplanet:log_oak_side"
+texture = "cubeplanet:log_oak_side"
+
+[[material]]
+key = "cubeplanet:log_oak_top"
+texture = "cubeplanet:log_oak_top"
+
+[[material]]
+key = "cubeplanet:planks_oak"
+texture = "cubeplanet:planks_oak"
+
+[[material]]
+key = "cubeplanet:leaves_oak"
+texture = "cubeplanet:leaves_oak"
+tint = "foliage"
+flags = ["cutout"]
+
+# --- birch ------------------------------------------------------------------------------------
+
+[[material]]
+key = "cubeplanet:log_birch_side"
+texture = "cubeplanet:log_birch_side"
+
+[[material]]
+key = "cubeplanet:log_birch_top"
+texture = "cubeplanet:log_birch_top"
+
+[[material]]
+key = "cubeplanet:planks_birch"
+texture = "cubeplanet:planks_birch"
+
+[[material]]
+key = "cubeplanet:leaves_birch"
+texture = "cubeplanet:leaves_birch"
+flags = ["cutout"]
+
+# --- spruce -----------------------------------------------------------------------------------
+
+[[material]]
+key = "cubeplanet:log_spruce_side"
+texture = "cubeplanet:log_spruce_side"
+
+[[material]]
+key = "cubeplanet:log_spruce_top"
+texture = "cubeplanet:log_spruce_top"
+
+[[material]]
+key = "cubeplanet:planks_spruce"
+texture = "cubeplanet:planks_spruce"
+
+[[material]]
+key = "cubeplanet:leaves_spruce"
+texture = "cubeplanet:leaves_spruce"
+flags = ["cutout"]
+
+# --- cherry -----------------------------------------------------------------------------------
+
+[[material]]
+key = "cubeplanet:log_cherry_side"
+texture = "cubeplanet:log_cherry_side"
+
+[[material]]
+key = "cubeplanet:log_cherry_top"
+texture = "cubeplanet:log_cherry_top"
+
+[[material]]
+key = "cubeplanet:planks_cherry"
+texture = "cubeplanet:planks_cherry"
+
+[[material]]
+key = "cubeplanet:leaves_cherry"
+texture = "cubeplanet:leaves_cherry"
+flags = ["cutout"]

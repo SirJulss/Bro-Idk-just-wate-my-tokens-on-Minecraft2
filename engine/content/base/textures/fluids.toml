@@ -1,0 +1,11 @@
+# Fluid textures.
+
+[[texture]]
+key = "cubeplanet:water"
+provenance = "own"
+procedural = { recipe = "water", seed = 301 }
+
+[[texture]]
+key = "cubeplanet:lava"
+provenance = "own"
+procedural = { recipe = "lava", seed = 302 }

@@ -1,0 +1,72 @@
+# Ground materials.
+#
+#   texture     the texture of the surface
+#   roughness   0 .. 1, default 1: scales the roughness stored in the texture
+#   metallic    0 .. 1, default 0
+#   emissive    >= 0, default 0: scales the emission stored in the texture
+#   tint        "none" (default) | "grass" | "foliage" | "water": the colour of the place that
+#               is multiplied into the near-neutral parts of the texture
+#   flags       "cutout": the texture's alpha cuts holes; "translucent": see-through surface
+#
+# The procedural textures carry their own roughness, so most materials here are just a name
+# for a texture.
+
+[[material]]
+key = "cubeplanet:stone"
+texture = "cubeplanet:stone"
+
+[[material]]
+key = "cubeplanet:dirt"
+texture = "cubeplanet:dirt"
+
+[[material]]
+key = "cubeplanet:grass_top"
+texture = "cubeplanet:grass_top"
+tint = "grass"
+
+# Tinted like the top, so that the fringe of grass on the side matches it in every climate. The
+# soil below the fringe is too strongly coloured to take the tint.
+[[material]]
+key = "cubeplanet:grass_side"
+texture = "cubeplanet:grass_side"
+tint = "grass"
+
+[[material]]
+key = "cubeplanet:sand"
+texture = "cubeplanet:sand"
+
+[[material]]
+key = "cubeplanet:sandstone"
+texture = "cubeplanet:sandstone"
+
+[[material]]
+key = "cubeplanet:gravel"
+texture = "cubeplanet:gravel"
+
+[[material]]
+key = "cubeplanet:snow"
+texture = "cubeplanet:snow"
+
+[[material]]
+key = "cubeplanet:ice"
+texture = "cubeplanet:ice"
+
+[[material]]
+key = "cubeplanet:clay"
+texture = "cubeplanet:clay"
+
+[[material]]
+key = "cubeplanet:basalt"
+texture = "cubeplanet:basalt"
+
+[[material]]
+key = "cubeplanet:limestone"
+texture = "cubeplanet:limestone"
+
+[[material]]
+key = "cubeplanet:slate"
+texture = "cubeplanet:slate"
+
+[[material]]
+key = "cubeplanet:core"
+texture = "cubeplanet:core"
